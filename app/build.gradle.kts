@@ -57,6 +57,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
 
     implementation(libs.bundles.common)
     implementation(libs.material)
