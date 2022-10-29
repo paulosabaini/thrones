@@ -3,7 +3,6 @@ package org.sabaini.thrones
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.sabaini.thrones.core.ui.ThronesTheme
 
@@ -14,7 +13,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ThronesTheme {
-                val navController = rememberNavController()
+
             }
         }
     }
