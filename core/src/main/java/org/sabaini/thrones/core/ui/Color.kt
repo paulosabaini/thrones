@@ -1,4 +1,4 @@
-package org.sabaini.thrones.ui.theme
+package org.sabaini.thrones.core.ui
 
 import androidx.compose.ui.graphics.Color
 

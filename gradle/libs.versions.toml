@@ -1,7 +1,7 @@
 [versions]
 # plugins
-androidGradle                       = "7.3.0"
-detekt                              = "1.22.0-RC1"
+androidGradle                       = "7.3.1"
+detekt                              = "1.22.0-RC2"
 detektTwitterCompose                = "0.0.18"
 junit                               = "1.8.2.1"
 ksp                                 = "1.7.20-1.0.6"
@@ -21,7 +21,7 @@ kotlin                              = "1.7.20"
 kotlinCoroutines                    = "1.6.4"
 kotlinSerialization                 = "1.4.0"
 kotlinSerializationConverter        = "0.8.0"
-lifecycle                           = "2.5.1"
+lifecycle                           = "2.6.0-alpha03"
 material                            = "1.6.1"
 okHttpLoggingInterceptor            = "4.10.0"
 retrofit                            = "2.9.0"
@@ -34,7 +34,7 @@ testMockk                           = "1.13.2"
 testTurbine                         = "0.11.0"
 
 # android test libraries
-testAndroidCore                     = "1.5.0-alpha02" # fix crash on Android 13 - https://developer.android.com/jetpack/androidx/releases/test#core_150_2
+testAndroidCore                     = "1.5.0-rc01"
 testAndroidRunner                   = "1.4.0"
 
 

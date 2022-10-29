@@ -1,4 +1,4 @@
-package org.sabaini.thrones.ui.theme
+package org.sabaini.thrones.core.ui
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
