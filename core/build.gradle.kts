@@ -58,6 +58,7 @@ dependencies {
     implementation(libs.lifecycleViewModel)
     implementation(libs.okHttpLoggingInterceptor)
     implementation(libs.retrofit)
+    testImplementation(libs.bundles.commonTest)
 
     kapt(libs.hiltCompiler)
 
