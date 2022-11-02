@@ -67,6 +67,7 @@ kotlinCoroutines                    = { module = "org.jetbrains.kotlinx:kotlinx-
 kotlinSerialization                 = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinSerialization" }
 kotlinSerializationConverter        = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "kotlinSerializationConverter" }
 lifecycleViewModel                  = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+lifecycleRuntimeCompose             = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle"}
 material                            = { module = "com.google.android.material:material", version.ref = "material" }
 okHttpLoggingInterceptor            = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okHttpLoggingInterceptor" }
 retrofit                            = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }

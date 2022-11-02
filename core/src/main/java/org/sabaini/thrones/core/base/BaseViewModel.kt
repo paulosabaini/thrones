@@ -54,6 +54,6 @@ abstract class BaseViewModel<UI_STATE : Parcelable, PARTIAL_UI_STATE, EVENT, INT
 
     protected abstract fun reduceUiState(
         previousState: UI_STATE,
-        partialUiState: PARTIAL_UI_STATE
+        partialState: PARTIAL_UI_STATE
     ): UI_STATE
 }

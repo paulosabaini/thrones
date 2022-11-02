@@ -1,7 +1,11 @@
 package org.sabaini.thrones.feature.character.data.repository
 
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import org.sabaini.thrones.feature.character.data.local.dao.CharacterDao
+import org.sabaini.thrones.feature.character.data.mapper.toDomainModel
+import org.sabaini.thrones.feature.character.data.mapper.toEntityModel
 import org.sabaini.thrones.feature.character.data.remote.api.ThronesApi
 import org.sabaini.thrones.feature.character.domain.model.Character
 import org.sabaini.thrones.feature.character.domain.repository.CharacterRepository
@@ -10,17 +14,37 @@ import javax.inject.Inject
 class CharacterRepositoryImpl @Inject constructor(
     private val thronesApi: ThronesApi,
     private val characterDao: CharacterDao
-): CharacterRepository {
+) : CharacterRepository {
 
     override fun getCharacters(): Flow<List<Character>> {
-        TODO("Not yet implemented")
+        return characterDao
+            .getCharacters()
+            .map { charactersCached ->
+                charactersCached.map { it.toDomainModel() }
+            }
+            .onEach { rockets ->
+                if (rockets.isEmpty()) {
+                    refreshCharacters()
+                }
+            }
     }
 
-    override fun getCharacter(): Flow<Character> {
-        TODO("Not yet implemented")
+    override fun getCharacter(characterId: Int): Flow<Character> {
+        return characterDao
+            .getCharacter(characterId)
+            .map {
+                it.toDomainModel()
+            }
     }
 
     override suspend fun refreshCharacters() {
-        TODO("Not yet implemented")
+        thronesApi
+            .getCharacters()
+            .map {
+                it.toDomainModel().toEntityModel()
+            }
+            .also {
+                characterDao.saveCharacters(it)
+            }
     }
 }

@@ -5,6 +5,6 @@ import org.sabaini.thrones.feature.character.domain.model.Character
 
 interface CharacterRepository {
     fun getCharacters(): Flow<List<Character>>
-    fun getCharacter(): Flow<Character>
+    fun getCharacter(characterId: Int): Flow<Character>
     suspend fun refreshCharacters()
 }

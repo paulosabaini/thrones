@@ -45,7 +45,9 @@ android {
 
     kotlinOptions {
         freeCompilerArgs = listOf(
-            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+            "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+            "-opt-in=androidx.lifecycle.compose.ExperimentalLifecycleComposeApi"
         )
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
@@ -61,6 +63,7 @@ dependencies {
     implementation(project(":core"))
 
     implementation(libs.bundles.common)
+    implementation(libs.lifecycleRuntimeCompose)
     implementation(libs.coil)
     implementation(libs.composeAccompanistSwipeRefresh)
     implementation(libs.composeNavigationHilt)
