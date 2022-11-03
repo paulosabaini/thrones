@@ -40,7 +40,7 @@ jobs:
       - name: Run unit tests
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: app:testDebugUnitTest --stacktrace
+          arguments: app:testDebugUnitTest feature-character:testDebugUnitTest --stacktrace
 
       - name: Run instrumentation tests
         uses: ReactiveCircus/android-emulator-runner@v2
