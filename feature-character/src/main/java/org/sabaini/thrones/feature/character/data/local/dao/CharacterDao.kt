@@ -12,7 +12,7 @@ import org.sabaini.thrones.feature.character.data.remote.model.CharacterResponse
 interface CharacterDao {
 
     @Query("SELECT * FROM CharacterCached")
-    fun getCharacters(): Flow<List<CharacterResponse>>
+    fun getCharacters(): Flow<List<CharacterCached>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveCharacters(characters: List<CharacterCached>)
