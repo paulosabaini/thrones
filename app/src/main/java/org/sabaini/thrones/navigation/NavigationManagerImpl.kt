@@ -2,7 +2,6 @@ package org.sabaini.thrones.navigation
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import org.sabaini.thrones.core.di.MainImmediateScope

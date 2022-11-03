@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -42,11 +43,12 @@ fun CharactersRoute(
 fun CharactersScreen(
     uiState: CharactersUiState,
     onRefreshCharacters: () -> Unit,
+    modifier: Modifier = Modifier,
     onCharacterClicked: (String) -> Unit
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
 
-    Scaffold(snackbarHost = { SnackbarHost(snackbarHostState) }) { padding ->
+    Scaffold(modifier = modifier, snackbarHost = { SnackbarHost(snackbarHostState) }) { padding ->
         SwipeRefresh(
             state = rememberSwipeRefreshState(isRefreshing = uiState.isLoading),
             onRefresh = onRefreshCharacters,
