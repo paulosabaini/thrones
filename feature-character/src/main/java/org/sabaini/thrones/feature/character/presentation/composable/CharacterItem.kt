@@ -1,8 +1,8 @@
 package org.sabaini.thrones.feature.character.presentation.composable
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,24 +20,24 @@ fun CharacterItem(
     modifier: Modifier = Modifier,
     onCharacterClicked: () -> Unit
 ) {
-    Row(
-        modifier = modifier
-            .padding(
-                vertical = dimensionResource(id = R.dimen.dimen_medium)
-            )
-            .clickable { onCharacterClicked() },
-        verticalAlignment = Alignment.CenterVertically
+    Card(
+        modifier = modifier.padding(vertical = dimensionResource(id = R.dimen.dimen_medium)),
+        onClick = { onCharacterClicked() }
     ) {
-        AsyncImage(
-            model = character.imageUrl,
-            contentDescription = stringResource(id = R.string.character_image_content_description),
-            modifier = Modifier.weight(1f)
-        )
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            AsyncImage(
+                model = character.imageUrl,
+                contentDescription = stringResource(id = R.string.character_image_content_description),
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(dimensionResource(id = R.dimen.dimen_medium))
+            )
 
-        Text(
-            text = character.fullName,
-            style = MaterialTheme.typography.displaySmall,
-            modifier = Modifier.weight(2f)
-        )
+            Text(
+                text = character.fullName,
+                style = MaterialTheme.typography.displaySmall,
+                modifier = Modifier.weight(2f)
+            )
+        }
     }
 }

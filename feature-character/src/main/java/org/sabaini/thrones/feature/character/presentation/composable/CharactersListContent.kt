@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.dimensionResource
 import org.sabaini.thrones.feature.character.R
@@ -36,7 +37,8 @@ fun CharactersListContent(
 
             if (index < characterList.lastIndex) {
                 Divider(
-                    modifier = Modifier.testTag((CHARACTER_DIVIDER_TEST_TAG))
+                    modifier = Modifier.testTag((CHARACTER_DIVIDER_TEST_TAG)),
+                    color = Color.Transparent
                 )
             }
         }
