@@ -29,14 +29,6 @@ class CharacterRepositoryImpl @Inject constructor(
             }
     }
 
-    override fun getCharacter(characterId: Int): Flow<Character> {
-        return characterDao
-            .getCharacter(characterId)
-            .map {
-                it.toDomainModel()
-            }
-    }
-
     override suspend fun refreshCharacters() {
         thronesApi
             .getCharacters()

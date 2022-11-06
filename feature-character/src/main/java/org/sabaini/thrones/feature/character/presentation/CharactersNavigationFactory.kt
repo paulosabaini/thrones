@@ -13,7 +13,5 @@ class CharactersNavigationFactory @Inject constructor() : NavigationFactory {
         builder.composable(NavigationDestination.CharacterList.route) {
             CharactersRoute()
         }
-
-        builder.composable(NavigationDestination.CharacterDetail.route) {}
     }
 }

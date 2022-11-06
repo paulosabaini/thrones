@@ -3,12 +3,10 @@ package org.sabaini.thrones.feature.character.presentation
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onStart
 import org.sabaini.thrones.core.base.BaseViewModel
-import org.sabaini.thrones.feature.character.domain.usecase.GetCharacterUseCase
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharactersUseCase
 import org.sabaini.thrones.feature.character.domain.usecase.RefreshCharactersUseCase
 import org.sabaini.thrones.feature.character.presentation.mapper.toPresentationModel
@@ -18,7 +16,6 @@ import javax.inject.Inject
 class CharactersViewModel @Inject constructor(
     private val getCharactersUseCase: GetCharactersUseCase,
     private val refreshCharactersUseCase: RefreshCharactersUseCase,
-    private val getCharacterUseCase: GetCharacterUseCase,
     savedStateHandle: SavedStateHandle,
     charactersInitialState: CharactersUiState
 ) : BaseViewModel<CharactersUiState, CharactersUiState.PartialState, CharactersEvent, CharactersIntent>(

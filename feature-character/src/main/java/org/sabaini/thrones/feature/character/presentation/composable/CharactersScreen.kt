@@ -71,7 +71,7 @@ fun CharactersScreen(
 private fun HandleEvents(events: Flow<CharactersEvent>) {
     events.collectWithLifecycle {
         when (it) {
-            is CharactersEvent.OpenWebBrowserWithDetails -> {}
+            is CharactersEvent.ExampleEvent -> {}
         }
     }
 }
