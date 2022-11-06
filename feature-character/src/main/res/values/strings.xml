@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="characters_error_fetching">Sorry, something went wrong when fetching characters</string>
+    <string name="characters_error_refreshing">Sorry, something went wrong when refreshing characters</string>
+
+    <string name="character_image_content_description">Character image</string>
+</resources>

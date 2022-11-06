@@ -1,12 +1,12 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.android.application)
     alias(libs.plugins.detekt)
     alias(libs.plugins.hilt)
     alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
-    alias(libs.plugins.kotlinKapt)
+    alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.ktLint)
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -41,7 +41,8 @@ android {
     }
     kotlinOptions {
         freeCompilerArgs = listOf(
-            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+            "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
         )
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
@@ -49,7 +50,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
     packagingOptions {
         resources.excludes.add("/META-INF/{AL2.0,LGPL2.1}")
@@ -58,23 +59,25 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":feature-character"))
 
+    implementation(platform(libs.compose.bom))
     implementation(libs.bundles.common)
-    implementation(libs.material)
-    implementation(libs.roomKtx)
-    testImplementation(libs.bundles.commonTest)
-    androidTestImplementation(libs.testAndroidCompose)
-    androidTestImplementation(libs.testAndroidCore)
-    androidTestImplementation(libs.testAndroidHilt)
-    androidTestImplementation(libs.testAndroidRunner)
+    implementation(libs.room.ktx)
+    testImplementation(libs.bundles.common.test)
+    androidTestImplementation(platform(libs.compose.bom))
+    androidTestImplementation(libs.test.android.compose)
+    androidTestImplementation(libs.test.android.core)
+    androidTestImplementation(libs.test.android.hilt)
+    androidTestImplementation(libs.test.android.runner)
 
-    kapt(libs.hiltCompiler)
-    ksp(libs.roomCompiler)
-    kaptAndroidTest(libs.testAndroidHiltCompiler)
+    kapt(libs.hilt.compiler)
+    ksp(libs.room.compiler)
+    kaptAndroidTest(libs.test.android.hilt.compiler)
 
     coreLibraryDesugaring(libs.desugar)
 
-    detektPlugins(libs.detektTwitterCompose)
+    detektPlugins(libs.detekt.twitter.compose)
 }
 
 ksp {
