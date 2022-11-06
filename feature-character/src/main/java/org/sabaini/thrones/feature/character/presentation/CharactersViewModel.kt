@@ -30,7 +30,7 @@ class CharactersViewModel @Inject constructor(
         when (intent) {
             is CharactersIntent.GetCharacters -> getCharacters()
             is CharactersIntent.RefreshCharacters -> refreshCharacters()
-            is CharactersIntent.CharacterClicked -> characterClicked(intent.id)
+            is CharactersIntent.CharacterClicked -> characterClicked()
         }
 
     override fun reduceUiState(
@@ -79,7 +79,7 @@ class CharactersViewModel @Inject constructor(
             }
     }
 
-    private fun characterClicked(id: String): Flow<CharactersUiState.PartialState> {
+    private fun characterClicked(): Flow<CharactersUiState.PartialState> {
         return emptyFlow()
     }
 }
