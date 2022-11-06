@@ -1,12 +1,12 @@
 plugins {
-    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.detekt)
     alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
-    alias(libs.plugins.kotlinKapt)
-    alias(libs.plugins.kotlinParcelize)
-    alias(libs.plugins.kotlinSerialization)
-    alias(libs.plugins.ktLint)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -40,7 +40,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 
     kotlinOptions {
@@ -62,19 +62,21 @@ android {
 dependencies {
     implementation(project(":core"))
 
+    implementation(platform(libs.compose.bom))
     implementation(libs.bundles.common)
-    implementation(libs.lifecycleRuntimeCompose)
+    implementation(libs.accompanist.swipe.refresh)
     implementation(libs.coil)
-    implementation(libs.composeAccompanistSwipeRefresh)
-    implementation(libs.composeNavigationHilt)
-    implementation(libs.kotlinSerialization)
+    implementation(libs.navigation.hilt)
+    implementation(libs.kotlin.serialization)
     implementation(libs.retrofit)
     implementation(libs.room)
-    testImplementation(libs.bundles.commonTest)
-    androidTestImplementation(libs.testAndroidCompose)
-    debugImplementation(libs.debugComposeManifest)
+    implementation(libs.lifecycle.runtime.compose)
+    testImplementation(libs.bundles.common.test)
+    androidTestImplementation(libs.test.android.compose)
+    androidTestImplementation(platform(libs.compose.bom))
+    debugImplementation(libs.debug.compose.manifest)
 
-    kapt(libs.hiltCompiler)
+    kapt(libs.hilt.compiler)
 
-    detektPlugins(libs.detektTwitterCompose)
+    detektPlugins(libs.detekt.twitter.compose)
 }

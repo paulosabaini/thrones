@@ -48,7 +48,10 @@ fun CharactersScreen(
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
 
-    Scaffold(modifier = modifier, snackbarHost = { SnackbarHost(snackbarHostState) }) { padding ->
+    Scaffold(
+        modifier = modifier,
+        snackbarHost = { SnackbarHost(snackbarHostState) }
+    ) { padding ->
         SwipeRefresh(
             state = rememberSwipeRefreshState(isRefreshing = uiState.isLoading),
             onRefresh = onRefreshCharacters,

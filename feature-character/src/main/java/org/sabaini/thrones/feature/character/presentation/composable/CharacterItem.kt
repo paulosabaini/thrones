@@ -3,7 +3,6 @@ package org.sabaini.thrones.feature.character.presentation.composable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -11,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
+import org.sabaini.thrones.core.ui.Typography
 import org.sabaini.thrones.feature.character.R
 import org.sabaini.thrones.feature.character.presentation.model.CharacterDisplayable
 
@@ -35,7 +35,7 @@ fun CharacterItem(
 
             Text(
                 text = character.fullName,
-                style = MaterialTheme.typography.displaySmall,
+                style = Typography.titleMedium,
                 modifier = Modifier.weight(2f)
             )
         }
