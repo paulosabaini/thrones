@@ -1,12 +1,10 @@
 package org.sabaini.thrones.feature.character.domain
 
-import app.cash.turbine.test
 import io.mockk.MockKAnnotations
 import io.mockk.Runs
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
 import io.mockk.just
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -14,8 +12,6 @@ import org.junit.jupiter.api.assertThrows
 import org.sabaini.thrones.feature.character.domain.repository.CharacterRepository
 import org.sabaini.thrones.feature.character.domain.usecase.RefreshCharactersUseCase
 import org.sabaini.thrones.feature.character.domain.usecase.refreshCharacters
-import org.sabaini.thrones.feature.character.generateTestCharacterFromDomain
-import java.io.IOException
 import kotlin.coroutines.cancellation.CancellationException
 import kotlin.test.assertEquals
 
