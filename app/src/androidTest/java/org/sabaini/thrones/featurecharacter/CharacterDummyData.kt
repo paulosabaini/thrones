@@ -10,7 +10,7 @@ internal val testCharactersFromDomain = listOf(
         fullName = "Daenerys Targaryen",
         title = "Mother of Dragons",
         family = "House Targaryen",
-        imageUrl = "https://thronesapi.com/assets/images/daenerys.jpg"
+        imageUrl = ""
     ),
     Character(
         id = 1,
@@ -19,7 +19,7 @@ internal val testCharactersFromDomain = listOf(
         fullName = "Samwell Tarly",
         title = "Maester",
         family = "House Tarly",
-        imageUrl = "https://thronesapi.com/assets/images/sam.jpg\n"
+        imageUrl = ""
     ),
     Character(
         id = 2,
@@ -28,6 +28,6 @@ internal val testCharactersFromDomain = listOf(
         fullName = "Jon Snow",
         title = "King of the North",
         family = "House Stark",
-        imageUrl = "https://thronesapi.com/assets/images/jon-snow.jpg\n"
+        imageUrl = ""
     )
 )

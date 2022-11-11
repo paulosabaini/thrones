@@ -37,7 +37,7 @@ fun CharactersListContent(
 
             if (index < characterList.lastIndex) {
                 Divider(
-                    modifier = Modifier.testTag((CHARACTER_DIVIDER_TEST_TAG)),
+                    modifier = Modifier.testTag(CHARACTER_DIVIDER_TEST_TAG),
                     color = Color.Transparent
                 )
             }
