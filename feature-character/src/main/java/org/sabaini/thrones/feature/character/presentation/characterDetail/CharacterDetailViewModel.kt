@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onStart
 import org.sabaini.thrones.core.base.BaseViewModel
+import org.sabaini.thrones.core.navigation.NavigationDestination
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharacterUseCase
 import org.sabaini.thrones.feature.character.presentation.mapper.toPresentationModel
 import javax.inject.Inject
@@ -19,13 +20,17 @@ class CharacterDetailViewModel @Inject constructor(
     savedStateHandle,
     charactersInitialState
 ) {
+    private val characterId: String = checkNotNull(
+        savedStateHandle[NavigationDestination.CharacterDetail.navArgument]
+    )
+
     init {
         acceptIntent(CharacterDetailIntent.GetCharacter)
     }
 
     override fun mapIntents(intent: CharacterDetailIntent): Flow<CharacterDetailUiState.PartialState> =
         when (intent) {
-            is CharacterDetailIntent.GetCharacter -> getCharacter("")
+            is CharacterDetailIntent.GetCharacter -> getCharacter(characterId)
         }
 
     override fun reduceUiState(

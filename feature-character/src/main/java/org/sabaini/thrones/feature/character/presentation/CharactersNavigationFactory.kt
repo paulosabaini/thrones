@@ -1,7 +1,9 @@
 package org.sabaini.thrones.feature.character.presentation
 
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavType
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import org.sabaini.thrones.core.navigation.NavigationDestination
 import org.sabaini.thrones.core.navigation.NavigationFactory
 import org.sabaini.thrones.feature.character.presentation.characterDetail.CharacterDetailRoute
@@ -15,7 +17,19 @@ class CharactersNavigationFactory @Inject constructor() : NavigationFactory {
             CharactersRoute()
         }
 
-        builder.composable(NavigationDestination.CharacterDetail.route) {
+        builder.composable(
+            route = NavigationDestination.CharacterDetail.route
+                .plus("/{")
+                .plus(NavigationDestination.CharacterDetail.navArgument)
+                .plus("}"),
+            arguments = listOf(
+                navArgument(
+                    NavigationDestination.CharacterDetail.navArgument
+                ) {
+                    type = NavType.StringType
+                }
+            )
+        ) {
             CharacterDetailRoute()
         }
     }

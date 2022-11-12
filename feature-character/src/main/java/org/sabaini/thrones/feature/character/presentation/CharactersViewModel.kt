@@ -83,7 +83,9 @@ class CharactersViewModel @Inject constructor(
     }
 
     private fun characterClicked(id: String): Flow<CharactersUiState.PartialState> {
-        navigationManager.navigate(NavigationCommands.CharactersScreen.charactersScreenToDetailScreen())
+        navigationManager.navigate(
+            NavigationCommands.CharactersScreen.charactersScreenToDetailScreen(id)
+        )
         return emptyFlow()
     }
 }
