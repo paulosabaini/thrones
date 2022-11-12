@@ -7,16 +7,20 @@ import org.sabaini.thrones.core.extensions.resultOf
 import org.sabaini.thrones.feature.character.domain.model.Character
 import org.sabaini.thrones.feature.character.domain.repository.CharacterRepository
 
-fun interface GetCharacterUseCase : () -> Flow<Result<Character>>
+interface GetCharacterUseCase {
+    suspend operator fun invoke(characterId: String): Flow<Result<Character>>
+}
 
-fun getCharacter(
-    characterRepository: CharacterRepository
-): Flow<Result<Character>> =
-    characterRepository
-        .getCharacter()
-        .map {
-            resultOf { it }
-        }
-        .catch {
-            emit(Result.failure(it))
-        }
+class GetCharacterUseCaseImpl(
+    private val characterRepository: CharacterRepository
+) : GetCharacterUseCase {
+    override suspend fun invoke(characterId: String) =
+        characterRepository
+            .getCharacter(characterId)
+            .map {
+                resultOf { it }
+            }
+            .catch {
+                emit(Result.failure(it))
+            }
+}

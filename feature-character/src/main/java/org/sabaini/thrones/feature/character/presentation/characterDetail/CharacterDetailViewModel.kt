@@ -52,8 +52,8 @@ class CharacterDetailViewModel @Inject constructor(
         )
     }
 
-    private fun getCharacter(id: String): Flow<CharacterDetailUiState.PartialState> = flow {
-        getCharacterUseCase()
+    private fun getCharacter(characterId: String): Flow<CharacterDetailUiState.PartialState> = flow {
+        getCharacterUseCase(characterId)
             .onStart {
                 emit(CharacterDetailUiState.PartialState.Loading)
             }

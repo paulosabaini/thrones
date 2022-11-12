@@ -9,9 +9,9 @@ import org.sabaini.thrones.feature.character.data.remote.api.ThronesApi
 import org.sabaini.thrones.feature.character.data.repository.CharacterRepositoryImpl
 import org.sabaini.thrones.feature.character.domain.repository.CharacterRepository
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharacterUseCase
+import org.sabaini.thrones.feature.character.domain.usecase.GetCharacterUseCaseImpl
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharactersUseCase
 import org.sabaini.thrones.feature.character.domain.usecase.RefreshCharactersUseCase
-import org.sabaini.thrones.feature.character.domain.usecase.getCharacter
 import org.sabaini.thrones.feature.character.domain.usecase.getCharacters
 import org.sabaini.thrones.feature.character.domain.usecase.refreshCharacters
 import retrofit2.Retrofit
@@ -51,9 +51,7 @@ object CharacterModule {
     fun provideGetCharacterUseCase(
         characterRepository: CharacterRepository
     ): GetCharacterUseCase {
-        return GetCharacterUseCase {
-            getCharacter(characterRepository)
-        }
+        return GetCharacterUseCaseImpl(characterRepository)
     }
 
     @Module
