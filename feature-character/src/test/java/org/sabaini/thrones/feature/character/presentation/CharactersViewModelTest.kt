@@ -16,6 +16,9 @@ import org.sabaini.thrones.core.utils.MainDispatcherExtension
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharactersUseCase
 import org.sabaini.thrones.feature.character.domain.usecase.RefreshCharactersUseCase
 import org.sabaini.thrones.feature.character.generateTestCharacterFromDomain
+import org.sabaini.thrones.feature.character.presentation.characterList.CharactersIntent
+import org.sabaini.thrones.feature.character.presentation.characterList.CharactersUiState
+import org.sabaini.thrones.feature.character.presentation.characterList.CharactersViewModel
 import org.sabaini.thrones.feature.character.presentation.mapper.toPresentationModel
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse

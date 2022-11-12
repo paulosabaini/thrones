@@ -8,8 +8,8 @@ import androidx.compose.ui.test.onNodeWithText
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.sabaini.thrones.feature.character.presentation.CharactersUiState
-import org.sabaini.thrones.feature.character.presentation.composable.CharactersScreen
+import org.sabaini.thrones.feature.character.presentation.characterList.CharactersUiState
+import org.sabaini.thrones.feature.character.presentation.characterList.composable.CharactersScreen
 
 class CharactersScreenTest {
 

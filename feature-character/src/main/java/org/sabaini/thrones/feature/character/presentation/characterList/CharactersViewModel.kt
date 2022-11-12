@@ -1,4 +1,4 @@
-package org.sabaini.thrones.feature.character.presentation
+package org.sabaini.thrones.feature.character.presentation.characterList
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel

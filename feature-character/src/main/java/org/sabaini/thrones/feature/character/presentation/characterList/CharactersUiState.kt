@@ -1,4 +1,4 @@
-package org.sabaini.thrones.feature.character.presentation
+package org.sabaini.thrones.feature.character.presentation.characterList
 
 import android.os.Parcelable
 import androidx.compose.runtime.Immutable

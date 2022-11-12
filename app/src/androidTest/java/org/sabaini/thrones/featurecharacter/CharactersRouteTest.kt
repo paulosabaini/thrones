@@ -9,7 +9,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.sabaini.thrones.MainActivity
-import org.sabaini.thrones.feature.character.presentation.composable.CharactersRoute
+import org.sabaini.thrones.feature.character.presentation.characterList.composable.CharactersRoute
 import org.sabaini.thrones.utils.getHiltTestViewModel
 
 @HiltAndroidTest

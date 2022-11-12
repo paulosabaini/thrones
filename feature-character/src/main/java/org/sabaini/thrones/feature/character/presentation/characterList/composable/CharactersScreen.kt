@@ -1,4 +1,4 @@
-package org.sabaini.thrones.feature.character.presentation.composable
+package org.sabaini.thrones.feature.character.presentation.characterList.composable
 
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -16,10 +16,10 @@ import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import kotlinx.coroutines.flow.Flow
 import org.sabaini.thrones.core.extensions.collectWithLifecycle
 import org.sabaini.thrones.feature.character.R
-import org.sabaini.thrones.feature.character.presentation.CharactersEvent
-import org.sabaini.thrones.feature.character.presentation.CharactersIntent
-import org.sabaini.thrones.feature.character.presentation.CharactersUiState
-import org.sabaini.thrones.feature.character.presentation.CharactersViewModel
+import org.sabaini.thrones.feature.character.presentation.characterList.CharactersEvent
+import org.sabaini.thrones.feature.character.presentation.characterList.CharactersIntent
+import org.sabaini.thrones.feature.character.presentation.characterList.CharactersUiState
+import org.sabaini.thrones.feature.character.presentation.characterList.CharactersViewModel
 
 @Composable
 fun CharactersRoute(

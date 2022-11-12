@@ -1,4 +1,4 @@
-package org.sabaini.thrones.feature.character.presentation.composable
+package org.sabaini.thrones.feature.character.presentation.characterList.composable
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
