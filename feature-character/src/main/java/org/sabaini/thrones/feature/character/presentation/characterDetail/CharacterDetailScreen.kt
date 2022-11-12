@@ -22,5 +22,5 @@ fun CharacterDetailScreen(
     uiState: CharacterDetailUiState,
     modifier: Modifier = Modifier,
 ) {
-    Text(text = "Character Detail Screen", style = MaterialTheme.typography.bodyLarge)
+    Text(text = uiState.character?.fullName.orEmpty(), style = MaterialTheme.typography.bodyLarge)
 }
