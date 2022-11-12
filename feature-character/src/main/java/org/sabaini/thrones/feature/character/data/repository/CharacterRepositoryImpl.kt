@@ -39,4 +39,10 @@ class CharacterRepositoryImpl @Inject constructor(
                 characterDao.saveCharacters(it)
             }
     }
+
+    override fun getCharacter(): Flow<Character> {
+        return characterDao
+            .getCharacter()
+            .map { it.toDomainModel() }
+    }
 }
