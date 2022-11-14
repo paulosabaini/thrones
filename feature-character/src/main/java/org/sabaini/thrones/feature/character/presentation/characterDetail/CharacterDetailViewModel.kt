@@ -16,7 +16,11 @@ class CharacterDetailViewModel @Inject constructor(
     private val getCharacterUseCase: GetCharacterUseCase,
     savedStateHandle: SavedStateHandle,
     charactersInitialState: CharacterDetailUiState
-) : BaseViewModel<CharacterDetailUiState, CharacterDetailUiState.PartialState, CharacterDetailEvent, CharacterDetailIntent>(
+) : BaseViewModel<
+        CharacterDetailUiState,
+        CharacterDetailUiState.PartialState,
+        CharacterDetailEvent,
+        CharacterDetailIntent>(
     savedStateHandle,
     charactersInitialState
 ) {
@@ -52,23 +56,24 @@ class CharacterDetailViewModel @Inject constructor(
         )
     }
 
-    private fun getCharacter(characterId: String): Flow<CharacterDetailUiState.PartialState> = flow {
-        getCharacterUseCase(characterId)
-            .onStart {
-                emit(CharacterDetailUiState.PartialState.Loading)
-            }
-            .collect { result ->
-                result
-                    .onSuccess { character ->
-                        emit(
-                            CharacterDetailUiState.PartialState.Fetched(
-                                character.toPresentationModel()
+    private fun getCharacter(characterId: String): Flow<CharacterDetailUiState.PartialState> =
+        flow {
+            getCharacterUseCase(characterId)
+                .onStart {
+                    emit(CharacterDetailUiState.PartialState.Loading)
+                }
+                .collect { result ->
+                    result
+                        .onSuccess { character ->
+                            emit(
+                                CharacterDetailUiState.PartialState.Fetched(
+                                    character.toPresentationModel()
+                                )
                             )
-                        )
-                    }
-                    .onFailure {
-                        emit(CharacterDetailUiState.PartialState.Error(it))
-                    }
-            }
-    }
+                        }
+                        .onFailure {
+                            emit(CharacterDetailUiState.PartialState.Error(it))
+                        }
+                }
+        }
 }

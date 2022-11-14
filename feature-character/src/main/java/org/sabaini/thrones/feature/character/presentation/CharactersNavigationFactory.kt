@@ -6,7 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import org.sabaini.thrones.core.navigation.NavigationDestination
 import org.sabaini.thrones.core.navigation.NavigationFactory
-import org.sabaini.thrones.feature.character.presentation.characterDetail.CharacterDetailRoute
+import org.sabaini.thrones.feature.character.presentation.characterDetail.composable.CharacterDetailRoute
 import org.sabaini.thrones.feature.character.presentation.characterList.composable.CharactersRoute
 import javax.inject.Inject
 

@@ -9,8 +9,8 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import org.sabaini.thrones.core.navigation.NavigationFactory
 import org.sabaini.thrones.feature.character.presentation.CharactersNavigationFactory
-import org.sabaini.thrones.feature.character.presentation.characterList.CharactersUiState
 import org.sabaini.thrones.feature.character.presentation.characterDetail.CharacterDetailUiState
+import org.sabaini.thrones.feature.character.presentation.characterList.CharactersUiState
 import javax.inject.Singleton
 
 @Module

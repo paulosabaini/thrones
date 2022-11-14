@@ -2,11 +2,13 @@ package org.sabaini.thrones.feature.character.presentation.characterList.composa
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
@@ -21,7 +23,7 @@ fun CharacterItem(
     onCharacterClicked: () -> Unit
 ) {
     Card(
-        modifier = modifier.padding(vertical = dimensionResource(id = R.dimen.dimen_medium)),
+        modifier = modifier.padding(vertical = dimensionResource(id = R.dimen.dimen_small)),
         onClick = { onCharacterClicked() }
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -31,6 +33,7 @@ fun CharacterItem(
                 modifier = Modifier
                     .weight(1f)
                     .padding(dimensionResource(id = R.dimen.dimen_medium))
+                    .clip(RoundedCornerShape(percent = 20))
             )
 
             Text(
