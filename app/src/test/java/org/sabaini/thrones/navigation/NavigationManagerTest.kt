@@ -1,5 +1,6 @@
 package org.sabaini.thrones.navigation
 
+import androidx.navigation.NamedNavArgument
 import app.cash.turbine.test
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
@@ -37,8 +38,8 @@ class NavigationManagerTest {
             )
 
             assertEquals(
-                expected = testNavigationCommand.configuration,
-                actual = actualItem.configuration
+                expected = testNavigationCommand.navOptions,
+                actual = actualItem.navOptions
             )
         }
     }
@@ -86,6 +87,8 @@ class NavigationManagerTest {
         return List(number) {
             object : NavigationCommand {
                 override val destination = "testDestination$it"
+
+                override val arguments = emptyList<NamedNavArgument>()
             }
         }
     }

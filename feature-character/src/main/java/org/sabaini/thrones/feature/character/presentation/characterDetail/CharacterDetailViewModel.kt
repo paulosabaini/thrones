@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onStart
 import org.sabaini.thrones.core.base.BaseViewModel
-import org.sabaini.thrones.core.navigation.NavigationDestination
+import org.sabaini.thrones.core.navigation.NavigationDirections
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharacterUseCase
 import org.sabaini.thrones.feature.character.presentation.mapper.toPresentationModel
 import javax.inject.Inject
@@ -25,7 +25,7 @@ class CharacterDetailViewModel @Inject constructor(
     charactersInitialState
 ) {
     private val characterId: String = checkNotNull(
-        savedStateHandle[NavigationDestination.CharacterDetail.navArgument]
+        savedStateHandle[NavigationDirections.CharacterDetailNavigation.KEY_CHARACTER_ID]
     )
 
     init {

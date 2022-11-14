@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onStart
 import org.sabaini.thrones.core.base.BaseViewModel
-import org.sabaini.thrones.core.navigation.NavigationCommands
+import org.sabaini.thrones.core.navigation.NavigationDirections
 import org.sabaini.thrones.core.navigation.NavigationManager
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharactersUseCase
 import org.sabaini.thrones.feature.character.domain.usecase.RefreshCharactersUseCase
@@ -84,7 +84,7 @@ class CharactersViewModel @Inject constructor(
 
     private fun characterClicked(id: String): Flow<CharactersUiState.PartialState> {
         navigationManager.navigate(
-            NavigationCommands.CharactersScreen.charactersScreenToDetailScreen(id)
+            NavigationDirections.CharacterDetailNavigation.characterDetail(id)
         )
         return emptyFlow()
     }
