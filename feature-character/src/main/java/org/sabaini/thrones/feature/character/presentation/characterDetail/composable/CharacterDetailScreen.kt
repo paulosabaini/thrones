@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -14,6 +15,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.sabaini.thrones.feature.character.R
 import org.sabaini.thrones.feature.character.presentation.characterDetail.CharacterDetailUiState
 import org.sabaini.thrones.feature.character.presentation.characterDetail.CharacterDetailViewModel
+
+const val CHARACTER_LOADING_TEST_TAG = "characterLoadingTestTag"
 
 @Composable
 fun CharacterDetailRoute(
@@ -42,7 +45,9 @@ private fun CharacterNotAvailableContent(
 ) {
     when {
         uiState.isLoading -> {
-            CircularProgressIndicator()
+            CircularProgressIndicator(
+                modifier = Modifier.testTag(CHARACTER_LOADING_TEST_TAG)
+            )
         }
         uiState.isError -> {
             Text(

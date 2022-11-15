@@ -12,6 +12,7 @@ import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.RegisterExtension
+import org.sabaini.thrones.core.navigation.NavigationManager
 import org.sabaini.thrones.core.utils.MainDispatcherExtension
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharactersUseCase
 import org.sabaini.thrones.feature.character.domain.usecase.RefreshCharactersUseCase
@@ -40,6 +41,9 @@ class CharactersViewModelTest {
 
     @SpyK
     private var savedStateHandle = SavedStateHandle()
+
+    @RelaxedMockK
+    private lateinit var navigationManager: NavigationManager
 
     private lateinit var objectUnderTest: CharactersViewModel
 
@@ -149,6 +153,7 @@ class CharactersViewModelTest {
         objectUnderTest = CharactersViewModel(
             getCharactersUseCase,
             refreshCharactersUseCase,
+            navigationManager,
             savedStateHandle,
             initialUiState
         )

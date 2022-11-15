@@ -17,6 +17,7 @@ import org.sabaini.thrones.feature.character.data.mapper.toEntityModel
 import org.sabaini.thrones.feature.character.data.remote.api.ThronesApi
 import org.sabaini.thrones.feature.character.data.repository.CharacterRepositoryImpl
 import org.sabaini.thrones.feature.character.domain.repository.CharacterRepository
+import org.sabaini.thrones.feature.character.generateTestCharacterFromDomain
 import org.sabaini.thrones.feature.character.generateTestCharacterFromRemote
 
 class CharacterRepositoryTest {
@@ -63,6 +64,20 @@ class CharacterRepositoryTest {
 
         // Then
         coVerify { characterDao.saveCharacters(testCharactersToCache) }
+    }
+
+    @Test
+    fun `should retrieve character from local database if valid id was given`() = runTest {
+        // Given
+        every { characterDao.getCharacter(any()) } returns flowOf(
+            generateTestCharacterFromDomain().toEntityModel()
+        )
+
+        // When
+        objectUnderTest.getCharacter("0").collect()
+
+        // Then
+        coVerify { characterDao.getCharacter("0") }
     }
 
     private fun setUpCharacterRepository() {
