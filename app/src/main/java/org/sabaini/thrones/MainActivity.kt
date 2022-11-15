@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
                     .collectWithLifecycle(
                         key = navController
                     ) {
-                        navController.navigate(it.destination, it.configuration)
+                        navController.navigate(it.destination, it.navOptions)
                     }
             }
         }

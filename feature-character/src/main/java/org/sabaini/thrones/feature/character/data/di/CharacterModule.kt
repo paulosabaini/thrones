@@ -8,6 +8,8 @@ import dagger.hilt.components.SingletonComponent
 import org.sabaini.thrones.feature.character.data.remote.api.ThronesApi
 import org.sabaini.thrones.feature.character.data.repository.CharacterRepositoryImpl
 import org.sabaini.thrones.feature.character.domain.repository.CharacterRepository
+import org.sabaini.thrones.feature.character.domain.usecase.GetCharacterUseCase
+import org.sabaini.thrones.feature.character.domain.usecase.GetCharacterUseCaseImpl
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharactersUseCase
 import org.sabaini.thrones.feature.character.domain.usecase.RefreshCharactersUseCase
 import org.sabaini.thrones.feature.character.domain.usecase.getCharacters
@@ -43,6 +45,13 @@ object CharacterModule {
         return RefreshCharactersUseCase {
             refreshCharacters(characterRepository)
         }
+    }
+
+    @Provides
+    fun provideGetCharacterUseCase(
+        characterRepository: CharacterRepository
+    ): GetCharacterUseCase {
+        return GetCharacterUseCaseImpl(characterRepository)
     }
 
     @Module

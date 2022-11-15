@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import org.sabaini.thrones.core.navigation.NavigationDestination
+import org.sabaini.thrones.core.navigation.NavigationDirections
 import org.sabaini.thrones.core.navigation.NavigationFactory
 
 @Composable
@@ -15,7 +15,7 @@ fun NavigationHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = NavigationDestination.CharacterList.route,
+        startDestination = NavigationDirections.CharacterList.destination,
         modifier = modifier
     ) {
         factories.forEach {
