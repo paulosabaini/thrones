@@ -16,7 +16,12 @@ class CharacterDetailViewModel @Inject constructor(
     private val getCharacterUseCase: GetCharacterUseCase,
     savedStateHandle: SavedStateHandle,
     charactersInitialState: CharacterDetailUiState
-) : BaseViewModel<CharacterDetailUiState, CharacterDetailUiState.PartialState, CharacterDetailEvent, CharacterDetailIntent>(
+) : BaseViewModel<
+    CharacterDetailUiState,
+    CharacterDetailUiState.PartialState,
+    CharacterDetailEvent,
+    CharacterDetailIntent
+    >(
     savedStateHandle,
     charactersInitialState
 ) {
