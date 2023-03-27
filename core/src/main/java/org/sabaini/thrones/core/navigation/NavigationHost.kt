@@ -1,11 +1,9 @@
-package org.sabaini.thrones.navigation
+package org.sabaini.thrones.core.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import org.sabaini.thrones.core.navigation.NavigationDirections
-import org.sabaini.thrones.core.navigation.NavigationFactory
 
 @Composable
 fun NavigationHost(

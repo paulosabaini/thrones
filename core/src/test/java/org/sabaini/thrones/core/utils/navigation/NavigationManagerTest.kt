@@ -1,4 +1,4 @@
-package org.sabaini.thrones.navigation
+package org.sabaini.thrones.core.utils.navigation
 
 import androidx.navigation.NamedNavArgument
 import app.cash.turbine.test
@@ -7,12 +7,13 @@ import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.sabaini.thrones.core.navigation.NavigationCommand
+import org.sabaini.thrones.core.navigation.NavigationManager
 import kotlin.test.assertEquals
 
 class NavigationManagerTest {
     private val testScope = TestScope()
 
-    private lateinit var objectUnderTest: NavigationManagerImpl
+    private lateinit var objectUnderTest: NavigationManager
 
     @BeforeEach
     fun setUp() {
@@ -94,6 +95,6 @@ class NavigationManagerTest {
     }
 
     private fun setUpNavigationManager() {
-        objectUnderTest = NavigationManagerImpl(testScope)
+        objectUnderTest = NavigationManager(testScope)
     }
 }

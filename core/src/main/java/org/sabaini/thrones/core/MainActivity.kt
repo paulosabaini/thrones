@@ -1,4 +1,4 @@
-package org.sabaini.thrones
+package org.sabaini.thrones.core
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -17,9 +17,9 @@ import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.sabaini.thrones.core.extensions.collectWithLifecycle
 import org.sabaini.thrones.core.navigation.NavigationFactory
+import org.sabaini.thrones.core.navigation.NavigationHost
 import org.sabaini.thrones.core.navigation.NavigationManager
 import org.sabaini.thrones.core.ui.ThronesTheme
-import org.sabaini.thrones.navigation.NavigationHost
 import javax.inject.Inject
 
 @AndroidEntryPoint

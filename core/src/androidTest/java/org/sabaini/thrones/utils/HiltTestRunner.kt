@@ -1,4 +1,4 @@
-package org.sabaini.thrones
+package org.sabaini.thrones.utils
 
 import android.app.Application
 import android.content.Context

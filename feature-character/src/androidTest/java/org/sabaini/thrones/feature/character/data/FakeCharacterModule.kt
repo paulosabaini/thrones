@@ -1,4 +1,4 @@
-package org.sabaini.thrones.featurecharacter
+package org.sabaini.thrones.feature.character.data
 
 import dagger.Module
 import dagger.Provides
@@ -13,6 +13,7 @@ import org.sabaini.thrones.feature.character.domain.usecase.GetCharacterUseCase
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharacterUseCaseImpl
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharactersUseCase
 import org.sabaini.thrones.feature.character.domain.usecase.RefreshCharactersUseCase
+import org.sabaini.thrones.feature.character.generateTestCharactersFromDomain
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
@@ -35,7 +36,7 @@ object FakeCharacterModule {
     fun provideFakeGetCharactersUseCase(): GetCharactersUseCase {
         return GetCharactersUseCase {
             flowOf(
-                Result.success(testCharactersFromDomain)
+                Result.success(generateTestCharactersFromDomain())
             )
         }
     }
