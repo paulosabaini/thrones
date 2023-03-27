@@ -1,9 +1,8 @@
 package org.sabaini.thrones.feature.character.data.local.dao
 
 import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Upsert
 import kotlinx.coroutines.flow.Flow
 import org.sabaini.thrones.feature.character.data.local.model.CharacterCached
 
@@ -13,7 +12,7 @@ interface CharacterDao {
     @Query("SELECT * FROM CharacterCached")
     fun getCharacters(): Flow<List<CharacterCached>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Upsert
     suspend fun saveCharacters(characters: List<CharacterCached>)
 
     @Query("SELECT * FROM CharacterCached WHERE id = :characterId")

@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.detekt)
@@ -13,10 +15,12 @@ android {
     compileSdk = 33
     namespace = "org.sabaini.thrones.feature.character"
 
-    defaultConfig {
+    with(defaultConfig) {
         minSdk = 24
         targetSdk = 33
+    }
 
+    defaultConfig {
         testInstrumentationRunner = "org.sabaini.thrones.core.utils.HiltTestRunner"
     }
 
@@ -73,6 +77,7 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.hilt)
     implementation(libs.kotlin.coroutines)
+    implementation(libs.lifecycle.runtime.compose)
     implementation(libs.navigation)
     implementation(libs.navigation.hilt)
     implementation(libs.kotlin.serialization)
@@ -89,5 +94,5 @@ dependencies {
 
     coreLibraryDesugaring(libs.desugar)
 
-    detektPlugins(libs.detekt.twitter.compose)
+    detektPlugins(libs.detekt.compose.rules)
 }

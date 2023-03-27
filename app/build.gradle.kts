@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.detekt)
@@ -28,9 +30,13 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // TODO: for development purposes, remember to create a release signing config when releasing proper app
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
+
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
@@ -61,7 +67,9 @@ dependencies {
     kapt(libs.hilt.compiler)
     ksp(libs.room.compiler)
 
-    detektPlugins(libs.detekt.twitter.compose)
+    coreLibraryDesugaring(libs.desugar)
+
+    detektPlugins(libs.detekt.compose.rules)
 }
 
 ksp {

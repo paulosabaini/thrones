@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.detekt)
@@ -12,10 +14,12 @@ android {
     compileSdk = 33
     namespace = "org.sabaini.thrones.core"
 
-    defaultConfig {
+    with(defaultConfig) {
         minSdk = 24
         targetSdk = 33
+    }
 
+    defaultConfig {
         buildConfigField("String", "THRONES_API_URL", "\"https://thronesapi.com/api/v2/\"")
     }
 
@@ -60,7 +64,7 @@ dependencies {
     implementation(libs.kotlin.coroutines)
     implementation(libs.kotlin.serialization)
     implementation(libs.kotlin.serialization.converter)
-    implementation(libs.lifecycle.viewmodel)
+    implementation(libs.lifecycle.runtime.compose)
     implementation(libs.navigation)
     implementation(libs.okhttp.logging.interceptor)
     implementation(libs.retrofit)
@@ -71,5 +75,5 @@ dependencies {
     kapt(libs.hilt.compiler)
     kaptAndroidTest(libs.test.android.hilt.compiler)
 
-    detektPlugins(libs.detekt.twitter.compose)
+    detektPlugins(libs.detekt.compose.rules)
 }
