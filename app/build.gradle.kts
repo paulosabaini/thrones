@@ -61,7 +61,6 @@ dependencies {
     implementation(libs.hilt)
     implementation(libs.navigation)
     implementation(libs.room.ktx)
-    implementation(libs.retrofit)
     implementation(libs.timber)
 
     kapt(libs.hilt.compiler)

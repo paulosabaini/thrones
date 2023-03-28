@@ -1,4 +1,4 @@
-package org.sabaini.thrones.feature.character
+package org.sabaini.thrones.feature.character.data
 
 import org.sabaini.thrones.feature.character.domain.model.Character
 import org.sabaini.thrones.feature.character.presentation.model.CharacterDisplayable

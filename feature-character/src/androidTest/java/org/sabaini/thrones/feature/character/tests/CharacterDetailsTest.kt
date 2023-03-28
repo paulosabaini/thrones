@@ -6,7 +6,7 @@ import androidx.compose.ui.test.onAllNodesWithText
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.sabaini.thrones.feature.character.generateTestCharactersFromPresentation
+import org.sabaini.thrones.feature.character.data.generateTestCharactersFromPresentation
 import org.sabaini.thrones.feature.character.presentation.characterDetail.composable.CharacterDetails
 
 class CharacterDetailsTest {

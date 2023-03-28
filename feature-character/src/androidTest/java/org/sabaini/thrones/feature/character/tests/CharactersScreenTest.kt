@@ -9,7 +9,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.sabaini.thrones.feature.character.R
-import org.sabaini.thrones.feature.character.generateTestCharactersFromPresentation
+import org.sabaini.thrones.feature.character.data.generateTestCharactersFromPresentation
 import org.sabaini.thrones.feature.character.presentation.characterList.CharactersUiState
 import org.sabaini.thrones.feature.character.presentation.characterList.composable.CharactersScreen
 
