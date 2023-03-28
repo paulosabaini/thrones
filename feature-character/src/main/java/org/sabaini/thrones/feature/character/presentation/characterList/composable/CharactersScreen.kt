@@ -52,6 +52,7 @@ fun CharactersScreen(
         modifier = modifier,
         snackbarHost = { SnackbarHost(snackbarHostState) }
     ) { padding ->
+        // TODO: migrate from accompanist to built-in pull-to-refresh when added to Material3
         SwipeRefresh(
             state = rememberSwipeRefreshState(isRefreshing = uiState.isLoading),
             onRefresh = onRefreshCharacters,

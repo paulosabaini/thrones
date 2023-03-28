@@ -1,4 +1,4 @@
-package org.sabaini.thrones.featurecharacter
+package org.sabaini.thrones.feature.character.data
 
 import dagger.Module
 import dagger.Provides
@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.flowOf
 import org.sabaini.thrones.core.extensions.resultOf
 import org.sabaini.thrones.feature.character.data.di.CharacterModule
 import org.sabaini.thrones.feature.character.data.remote.api.ThronesApi
-import org.sabaini.thrones.feature.character.domain.repository.CharacterRepository
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharacterUseCase
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharacterUseCaseImpl
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharactersUseCase
@@ -35,7 +34,7 @@ object FakeCharacterModule {
     fun provideFakeGetCharactersUseCase(): GetCharactersUseCase {
         return GetCharactersUseCase {
             flowOf(
-                Result.success(testCharactersFromDomain)
+                Result.success(generateTestCharactersFromDomain())
             )
         }
     }
@@ -46,9 +45,7 @@ object FakeCharacterModule {
     }
 
     @Provides
-    fun provideFakeGetCharacterUseCase(
-        characterRepository: CharacterRepository
-    ): GetCharacterUseCase {
-        return GetCharacterUseCaseImpl(characterRepository)
+    fun provideFakeGetCharacterUseCase(): GetCharacterUseCase {
+        return GetCharacterUseCaseImpl(FakeCharacterRepository())
     }
 }

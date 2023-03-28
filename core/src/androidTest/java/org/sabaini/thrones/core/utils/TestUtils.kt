@@ -1,4 +1,4 @@
-package org.sabaini.thrones.utils
+package org.sabaini.thrones.core.utils
 
 import androidx.activity.viewModels
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule

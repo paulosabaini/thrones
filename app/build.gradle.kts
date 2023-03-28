@@ -1,8 +1,9 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.detekt)
     alias(libs.plugins.hilt)
-    alias(libs.plugins.junit)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.ksp)
@@ -19,8 +20,6 @@ android {
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "org.sabaini.thrones.HiltTestRunner"
     }
 
     buildTypes {
@@ -31,6 +30,8 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // TODO: for development purposes, remember to create a release signing config when releasing proper app
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -40,10 +41,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        freeCompilerArgs = listOf(
-            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
-        )
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
     buildFeatures {
@@ -61,24 +58,17 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":feature-character"))
 
-    implementation(platform(libs.compose.bom))
-    implementation(libs.bundles.common)
+    implementation(libs.hilt)
+    implementation(libs.navigation)
     implementation(libs.room.ktx)
-    implementation(libs.retrofit)
-    testImplementation(libs.bundles.common.test)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.test.android.compose)
-    androidTestImplementation(libs.test.android.core)
-    androidTestImplementation(libs.test.android.hilt)
-    androidTestImplementation(libs.test.android.runner)
+    implementation(libs.timber)
 
     kapt(libs.hilt.compiler)
     ksp(libs.room.compiler)
-    kaptAndroidTest(libs.test.android.hilt.compiler)
 
     coreLibraryDesugaring(libs.desugar)
 
-    detektPlugins(libs.detekt.twitter.compose)
+    detektPlugins(libs.detekt.compose.rules)
 }
 
 ksp {

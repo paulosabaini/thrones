@@ -1,4 +1,4 @@
-package org.sabaini.thrones.feature.character
+package org.sabaini.thrones.feature.character.tests
 
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -6,6 +6,7 @@ import androidx.compose.ui.test.onAllNodesWithTag
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.sabaini.thrones.feature.character.data.generateTestCharactersFromPresentation
 import org.sabaini.thrones.feature.character.presentation.characterList.composable.CHARACTER_DIVIDER_TEST_TAG
 import org.sabaini.thrones.feature.character.presentation.characterList.composable.CharactersListContent
 

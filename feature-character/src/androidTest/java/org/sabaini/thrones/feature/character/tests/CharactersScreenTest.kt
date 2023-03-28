@@ -1,4 +1,4 @@
-package org.sabaini.thrones.feature.character
+package org.sabaini.thrones.feature.character.tests
 
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.assertCountEquals
@@ -8,6 +8,8 @@ import androidx.compose.ui.test.onNodeWithText
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.sabaini.thrones.feature.character.R
+import org.sabaini.thrones.feature.character.data.generateTestCharactersFromPresentation
 import org.sabaini.thrones.feature.character.presentation.characterList.CharactersUiState
 import org.sabaini.thrones.feature.character.presentation.characterList.composable.CharactersScreen
 

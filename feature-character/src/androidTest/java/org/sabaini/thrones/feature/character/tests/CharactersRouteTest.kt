@@ -1,4 +1,4 @@
-package org.sabaini.thrones.featurecharacter
+package org.sabaini.thrones.feature.character.tests
 
 import androidx.activity.compose.setContent
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -8,9 +8,10 @@ import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.sabaini.thrones.MainActivity
+import org.sabaini.thrones.core.MainActivity
+import org.sabaini.thrones.core.utils.getHiltTestViewModel
+import org.sabaini.thrones.feature.character.data.generateTestCharactersFromDomain
 import org.sabaini.thrones.feature.character.presentation.characterList.composable.CharactersRoute
-import org.sabaini.thrones.utils.getHiltTestViewModel
 
 @HiltAndroidTest
 class CharactersRouteTest {
@@ -20,6 +21,8 @@ class CharactersRouteTest {
 
     @get:Rule(order = 1)
     val composeTestRule = createAndroidComposeRule<MainActivity>()
+
+    private val testCharacters = generateTestCharactersFromDomain()
 
     @Before
     fun setUp() {
@@ -33,7 +36,7 @@ class CharactersRouteTest {
 
     @Test
     fun charactersRoute_whenHappyPath_shouldShowAllFakeCharacters() {
-        testCharactersFromDomain.forEach { character ->
+        testCharacters.forEach { character ->
             composeTestRule
                 .onNodeWithText(character.fullName)
                 .assertExists()
