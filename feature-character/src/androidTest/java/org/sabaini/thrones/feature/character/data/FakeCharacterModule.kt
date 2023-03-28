@@ -46,9 +46,7 @@ object FakeCharacterModule {
     }
 
     @Provides
-    fun provideFakeGetCharacterUseCase(
-        characterRepository: CharacterRepository
-    ): GetCharacterUseCase {
-        return GetCharacterUseCaseImpl(characterRepository)
+    fun provideFakeGetCharacterUseCase(): GetCharacterUseCase {
+        return GetCharacterUseCaseImpl(FakeCharacterRepository())
     }
 }

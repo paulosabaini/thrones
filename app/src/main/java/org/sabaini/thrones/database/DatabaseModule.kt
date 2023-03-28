@@ -30,7 +30,7 @@ object DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideRocketDao(database: AppDatabase): CharacterDao {
+    fun provideCharacterDao(database: AppDatabase): CharacterDao {
         return database.characterDao()
     }
 }
