@@ -1,8 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
 include(":app")
-include(":core")
 include(":feature-character")
+include(":core")
 
 pluginManagement {
     repositories {
