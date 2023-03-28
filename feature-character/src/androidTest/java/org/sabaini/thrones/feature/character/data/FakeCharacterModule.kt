@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.flowOf
 import org.sabaini.thrones.core.extensions.resultOf
 import org.sabaini.thrones.feature.character.data.di.CharacterModule
 import org.sabaini.thrones.feature.character.data.remote.api.ThronesApi
-import org.sabaini.thrones.feature.character.domain.repository.CharacterRepository
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharacterUseCase
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharacterUseCaseImpl
 import org.sabaini.thrones.feature.character.domain.usecase.GetCharactersUseCase

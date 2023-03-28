@@ -12,14 +12,11 @@ class FakeCharacterRepository : CharacterRepository {
         )
     }
 
-    override suspend fun refreshCharacters() {
-        TODO("Not yet implemented")
-    }
+    override suspend fun refreshCharacters() {}
 
     override fun getCharacter(characterId: String): Flow<Character> {
         return flowOf(
             generateTestCharactersFromDomain().first()
         )
     }
-
 }
