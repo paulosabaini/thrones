@@ -9,7 +9,8 @@ import androidx.navigation.compose.NavHost
 fun NavigationHost(
     navController: NavHostController,
     factories: Set<NavigationFactory>,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onAppBarState: (AppBarState) -> Unit
 ) {
     NavHost(
         navController = navController,
@@ -17,7 +18,7 @@ fun NavigationHost(
         modifier = modifier
     ) {
         factories.forEach {
-            it.create(this)
+            it.create(this, onAppBarState)
         }
     }
 }

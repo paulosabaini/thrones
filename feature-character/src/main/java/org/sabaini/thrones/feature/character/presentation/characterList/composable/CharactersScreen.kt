@@ -1,5 +1,10 @@
 package org.sabaini.thrones.feature.character.presentation.characterList.composable
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -15,6 +20,7 @@ import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import kotlinx.coroutines.flow.Flow
 import org.sabaini.thrones.core.extensions.collectWithLifecycle
+import org.sabaini.thrones.core.navigation.AppBarState
 import org.sabaini.thrones.feature.character.R
 import org.sabaini.thrones.feature.character.presentation.characterList.CharactersEvent
 import org.sabaini.thrones.feature.character.presentation.characterList.CharactersIntent
@@ -23,10 +29,30 @@ import org.sabaini.thrones.feature.character.presentation.characterList.Characte
 
 @Composable
 fun CharactersRoute(
+    onAppBarState: (AppBarState) -> Unit,
+    modifier: Modifier = Modifier,
     viewModel: CharactersViewModel = hiltViewModel()
 ) {
     HandleEvents(viewModel.event)
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val title = stringResource(id = org.sabaini.thrones.core.R.string.app_name)
+
+    LaunchedEffect(key1 = true) {
+        onAppBarState(
+            AppBarState(
+                title = title,
+                actions = {
+                    IconButton(onClick = { }) {
+                        Icon(
+                            imageVector = Icons.Default.Info,
+                            tint = MaterialTheme.colorScheme.onPrimary,
+                            contentDescription = "Info icon"
+                        )
+                    }
+                }
+            )
+        )
+    }
 
     CharactersScreen(
         uiState = uiState,
@@ -35,7 +61,8 @@ fun CharactersRoute(
         },
         onCharacterClicked = {
             viewModel.acceptIntent(CharactersIntent.CharacterClicked(it))
-        }
+        },
+        modifier = modifier
     )
 }
 
