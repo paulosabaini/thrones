@@ -4,6 +4,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -12,6 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.sabaini.thrones.core.navigation.AppBarState
 import org.sabaini.thrones.feature.character.R
 import org.sabaini.thrones.feature.character.presentation.characterDetail.CharacterDetailUiState
 import org.sabaini.thrones.feature.character.presentation.characterDetail.CharacterDetailViewModel
@@ -20,9 +22,19 @@ const val CHARACTER_LOADING_TEST_TAG = "characterLoadingTestTag"
 
 @Composable
 fun CharacterDetailRoute(
+    onAppBarState: (AppBarState) -> Unit,
     viewModel: CharacterDetailViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    LaunchedEffect(key1 = uiState.character) {
+        onAppBarState(
+            AppBarState(
+                title = uiState.character?.fullName ?: "",
+                showNavigationIcon = true
+            )
+        )
+    }
 
     CharacterDetailScreen(uiState = uiState)
 }

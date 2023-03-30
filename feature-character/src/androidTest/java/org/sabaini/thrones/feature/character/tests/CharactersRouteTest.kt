@@ -9,6 +9,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.sabaini.thrones.core.MainActivity
+import org.sabaini.thrones.core.navigation.AppBarState
 import org.sabaini.thrones.core.utils.getHiltTestViewModel
 import org.sabaini.thrones.feature.character.data.generateTestCharactersFromDomain
 import org.sabaini.thrones.feature.character.presentation.characterList.composable.CharactersRoute
@@ -29,6 +30,7 @@ class CharactersRouteTest {
         hiltTestRule.inject()
         composeTestRule.activity.setContent {
             CharactersRoute(
+                onAppBarState = { AppBarState(title = "Thrones") },
                 viewModel = composeTestRule.getHiltTestViewModel()
             )
         }
