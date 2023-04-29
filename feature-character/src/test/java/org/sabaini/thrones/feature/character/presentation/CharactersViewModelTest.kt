@@ -79,7 +79,7 @@ class CharactersViewModelTest {
             val testCharactersToPresentation =
                 testCharactersFromDomain.map { it.toPresentationModel() }
             every { getCharactersUseCase() } returns flowOf(
-                Result.success(testCharactersFromDomain)
+                Result.success(testCharactersFromDomain),
             )
             setUpCharactersViewModel()
 
@@ -92,7 +92,7 @@ class CharactersViewModelTest {
 
                 assertEquals(
                     expected = testCharactersToPresentation,
-                    actual = actualItem.characters
+                    actual = actualItem.characters,
                 )
                 assertFalse(actualItem.isLoading)
                 assertFalse(actualItem.isError)
@@ -104,7 +104,7 @@ class CharactersViewModelTest {
         runTest {
             // Given
             every { getCharactersUseCase() } returns flowOf(
-                Result.failure(IllegalStateException("Test error"))
+                Result.failure(IllegalStateException("Test error")),
             )
             setUpCharactersViewModel()
 
@@ -128,7 +128,7 @@ class CharactersViewModelTest {
             val testCharactersToPresentation =
                 testCharactersFromDomain.map { it.toPresentationModel() }
             every { getCharactersUseCase() } returns flowOf(
-                Result.success(testCharactersFromDomain)
+                Result.success(testCharactersFromDomain),
             )
             setUpCharactersViewModel()
 
@@ -142,20 +142,20 @@ class CharactersViewModelTest {
                 assertTrue(actualItem.isError)
                 assertEquals(
                     expected = testCharactersToPresentation,
-                    actual = actualItem.characters
+                    actual = actualItem.characters,
                 )
             }
         }
 
     private fun setUpCharactersViewModel(
-        initialUiState: CharactersUiState = CharactersUiState()
+        initialUiState: CharactersUiState = CharactersUiState(),
     ) {
         objectUnderTest = CharactersViewModel(
             getCharactersUseCase,
             refreshCharactersUseCase,
             navigationManager,
             savedStateHandle,
-            initialUiState
+            initialUiState,
         )
     }
 }

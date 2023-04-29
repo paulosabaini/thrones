@@ -38,7 +38,7 @@ class RefreshCharactersUseCaseTest {
         // Then
         assertEquals(
             expected = Result.success(Unit),
-            actual = result
+            actual = result,
         )
     }
 
@@ -65,7 +65,7 @@ class RefreshCharactersUseCaseTest {
 
             assertEquals(
                 expected = Result.failure(testException),
-                actual = result
+                actual = result,
             )
         }
     }

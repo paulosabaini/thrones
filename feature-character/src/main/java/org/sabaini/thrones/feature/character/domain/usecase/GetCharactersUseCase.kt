@@ -5,7 +5,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.retryWhen
-import org.sabaini.thrones.core.extensions.resultOf
 import org.sabaini.thrones.feature.character.domain.model.Character
 import org.sabaini.thrones.feature.character.domain.repository.CharacterRepository
 import java.io.IOException
@@ -15,12 +14,12 @@ private const val RETRY_TIME_IN_MILLIS = 15_000L
 fun interface GetCharactersUseCase : () -> Flow<Result<List<Character>>>
 
 fun getCharacters(
-    characterRepository: CharacterRepository
+    characterRepository: CharacterRepository,
 ): Flow<Result<List<Character>>> =
     characterRepository
         .getCharacters()
         .map {
-            resultOf { it }
+            Result.success(it)
         }
         .retryWhen { cause, _ ->
             if (cause is IOException) {

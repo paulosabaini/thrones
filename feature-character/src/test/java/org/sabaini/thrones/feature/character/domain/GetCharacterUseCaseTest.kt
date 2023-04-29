@@ -41,7 +41,7 @@ class GetCharacterUseCaseTest {
 
             assertEquals(
                 expected = Result.success(testCharacterFromDomain),
-                actual = result
+                actual = result,
             )
             awaitComplete()
         }
@@ -71,7 +71,7 @@ class GetCharacterUseCaseTest {
 
                 assertEquals(
                     expected = Result.failure(testException),
-                    actual = result
+                    actual = result,
                 )
             }
         }

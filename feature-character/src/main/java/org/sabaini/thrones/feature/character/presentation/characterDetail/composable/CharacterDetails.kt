@@ -24,24 +24,24 @@ import org.sabaini.thrones.feature.character.presentation.model.CharacterDisplay
 @Composable
 fun CharacterDetails(
     character: CharacterDisplayable,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(
-            dimensionResource(id = R.dimen.dimen_small)
+            dimensionResource(id = R.dimen.dimen_small),
         ),
         modifier = modifier
             .fillMaxSize()
             .padding(
-                dimensionResource(id = R.dimen.dimen_medium)
-            )
+                dimensionResource(id = R.dimen.dimen_medium),
+            ),
     ) {
         Text(
             text = character.fullName,
             style = Typography.titleLarge,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
 
         AsyncImage(
@@ -50,12 +50,12 @@ fun CharacterDetails(
             alignment = Alignment.Center,
             modifier = Modifier
                 .clip(RoundedCornerShape(percent = 10))
-                .fillMaxWidth()
+                .fillMaxWidth(),
         )
 
         CharacterInfo(
             character = character,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
     }
 }
@@ -63,57 +63,57 @@ fun CharacterDetails(
 @Composable
 private fun CharacterInfo(
     character: CharacterDisplayable,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Card(
-        modifier = modifier
+        modifier = modifier,
     ) {
         Column(
             modifier = Modifier.padding(
-                dimensionResource(id = R.dimen.dimen_small)
+                dimensionResource(id = R.dimen.dimen_small),
             ),
             verticalArrangement = Arrangement.spacedBy(
-                dimensionResource(id = R.dimen.dimen_small)
-            )
+                dimensionResource(id = R.dimen.dimen_small),
+            ),
         ) {
             Text(
                 text = stringResource(
                     id = R.string.character_first_name,
-                    character.firstName
+                    character.firstName,
                 ),
-                style = Typography.bodyMedium
+                style = Typography.bodyMedium,
             )
 
             Text(
                 text = stringResource(
                     id = R.string.character_last_name,
-                    character.lastName
+                    character.lastName,
                 ),
-                style = Typography.bodyMedium
+                style = Typography.bodyMedium,
             )
 
             Text(
                 text = stringResource(
                     id = R.string.character_full_name,
-                    character.fullName
+                    character.fullName,
                 ),
-                style = Typography.bodyMedium
+                style = Typography.bodyMedium,
             )
 
             Text(
                 text = stringResource(
                     id = R.string.character_title,
-                    character.title
+                    character.title,
                 ),
-                style = Typography.bodyMedium
+                style = Typography.bodyMedium,
             )
 
             Text(
                 text = stringResource(
                     id = R.string.character_family,
-                    character.family
+                    character.family,
                 ),
-                style = Typography.bodyMedium
+                style = Typography.bodyMedium,
             )
         }
     }

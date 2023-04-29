@@ -10,5 +10,5 @@ fun Character.toPresentationModel() = CharacterDisplayable(
     fullName = fullName,
     title = title,
     family = family,
-    imageUrl = imageUrl
+    imageUrl = imageUrl,
 )

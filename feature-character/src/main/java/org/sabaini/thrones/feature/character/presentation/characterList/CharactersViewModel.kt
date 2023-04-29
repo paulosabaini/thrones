@@ -20,10 +20,10 @@ class CharactersViewModel @Inject constructor(
     private val refreshCharactersUseCase: RefreshCharactersUseCase,
     private val navigationManager: NavigationManager,
     savedStateHandle: SavedStateHandle,
-    charactersInitialState: CharactersUiState
+    charactersInitialState: CharactersUiState,
 ) : BaseViewModel<CharactersUiState, CharactersUiState.PartialState, CharactersEvent, CharactersIntent>(
     savedStateHandle,
-    charactersInitialState
+    charactersInitialState,
 ) {
     init {
         acceptIntent(CharactersIntent.GetCharacters)
@@ -38,20 +38,22 @@ class CharactersViewModel @Inject constructor(
 
     override fun reduceUiState(
         previousState: CharactersUiState,
-        partialState: CharactersUiState.PartialState
+        partialState: CharactersUiState.PartialState,
     ): CharactersUiState = when (partialState) {
         is CharactersUiState.PartialState.Loading -> previousState.copy(
             isLoading = true,
-            isError = false
+            isError = false,
         )
+
         is CharactersUiState.PartialState.Fetched -> previousState.copy(
             isLoading = false,
             characters = partialState.list,
-            isError = false
+            isError = false,
         )
+
         is CharactersUiState.PartialState.Error -> previousState.copy(
             isLoading = false,
-            isError = true
+            isError = true,
         )
     }
 
@@ -65,8 +67,8 @@ class CharactersViewModel @Inject constructor(
                     .onSuccess { characterList ->
                         emit(
                             CharactersUiState.PartialState.Fetched(
-                                characterList.map { it.toPresentationModel() }
-                            )
+                                characterList.map { it.toPresentationModel() },
+                            ),
                         )
                     }
                     .onFailure {
@@ -84,7 +86,7 @@ class CharactersViewModel @Inject constructor(
 
     private fun characterClicked(id: String): Flow<CharactersUiState.PartialState> {
         navigationManager.navigate(
-            NavigationDirections.CharacterDetailNavigation.characterDetail(id)
+            NavigationDirections.CharacterDetailNavigation.characterDetail(id),
         )
         return emptyFlow()
     }

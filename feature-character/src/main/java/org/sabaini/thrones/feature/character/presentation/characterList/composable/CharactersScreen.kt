@@ -31,7 +31,7 @@ import org.sabaini.thrones.feature.character.presentation.characterList.Characte
 fun CharactersRoute(
     onAppBarState: (AppBarState) -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: CharactersViewModel = hiltViewModel()
+    viewModel: CharactersViewModel = hiltViewModel(),
 ) {
     HandleEvents(viewModel.event)
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -46,50 +46,44 @@ fun CharactersRoute(
                         Icon(
                             imageVector = Icons.Default.Info,
                             tint = MaterialTheme.colorScheme.onPrimary,
-                            contentDescription = "Info icon"
+                            contentDescription = "Info icon",
                         )
                     }
-                }
-            )
+                },
+            ),
         )
     }
 
     CharactersScreen(
         uiState = uiState,
-        onRefreshCharacters = {
-            viewModel.acceptIntent(CharactersIntent.RefreshCharacters)
-        },
-        onCharacterClicked = {
-            viewModel.acceptIntent(CharactersIntent.CharacterClicked(it))
-        },
-        modifier = modifier
+        onIntent = viewModel::acceptIntent,
+        modifier = modifier,
     )
 }
 
 @Composable
 fun CharactersScreen(
     uiState: CharactersUiState,
-    onRefreshCharacters: () -> Unit,
     modifier: Modifier = Modifier,
-    onCharacterClicked: (String) -> Unit
+    onIntent: (CharactersIntent) -> Unit,
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
 
     Scaffold(
         modifier = modifier,
-        snackbarHost = { SnackbarHost(snackbarHostState) }
+        snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { padding ->
         // TODO: migrate from accompanist to built-in pull-to-refresh when added to Material3
         SwipeRefresh(
             state = rememberSwipeRefreshState(isRefreshing = uiState.isLoading),
-            onRefresh = onRefreshCharacters,
-            indicatorPadding = padding
+            onRefresh = { onIntent(CharactersIntent.RefreshCharacters) },
+            indicatorPadding = padding,
         ) {
             if (uiState.characters.isNotEmpty()) {
                 CharactersAvailableContent(
                     snackbarHostState = snackbarHostState,
                     uiState = uiState,
-                    onCharacterClicked = onCharacterClicked
+                    onCharacterClicked = { onIntent(CharactersIntent.CharacterClicked(it)) },
                 )
             } else {
                 CharactersNotAvailableContent(uiState = uiState)
@@ -111,21 +105,21 @@ private fun HandleEvents(events: Flow<CharactersEvent>) {
 private fun CharactersAvailableContent(
     snackbarHostState: SnackbarHostState,
     uiState: CharactersUiState,
-    onCharacterClicked: (String) -> Unit
+    onCharacterClicked: (String) -> Unit,
 ) {
     if (uiState.isError) {
         val errorMessage = stringResource(R.string.characters_error_refreshing)
 
         LaunchedEffect(snackbarHostState) {
             snackbarHostState.showSnackbar(
-                message = errorMessage
+                message = errorMessage,
             )
         }
     }
 
     CharactersListContent(
         characterList = uiState.characters,
-        onCharacterClicked = { onCharacterClicked(it) }
+        onCharacterClicked = onCharacterClicked,
     )
 }
 

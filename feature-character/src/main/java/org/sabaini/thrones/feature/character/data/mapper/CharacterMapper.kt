@@ -11,7 +11,7 @@ fun CharacterResponse.toDomainModel() = Character(
     fullName = fullName,
     title = title,
     family = family,
-    imageUrl = imageUrl
+    imageUrl = imageUrl,
 )
 
 fun CharacterCached.toDomainModel() = Character(
@@ -21,7 +21,7 @@ fun CharacterCached.toDomainModel() = Character(
     fullName = fullName,
     title = title,
     family = family,
-    imageUrl = imageUrl
+    imageUrl = imageUrl,
 )
 
 fun Character.toEntityModel() = CharacterCached(
@@ -31,5 +31,5 @@ fun Character.toEntityModel() = CharacterCached(
     fullName = fullName,
     title = title,
     family = family,
-    imageUrl = imageUrl
+    imageUrl = imageUrl,
 )

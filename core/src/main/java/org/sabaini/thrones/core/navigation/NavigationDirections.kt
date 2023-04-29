@@ -19,11 +19,11 @@ object NavigationDirections {
         const val ROUTE = "characterDetailDestination/{$KEY_CHARACTER_ID}"
 
         val argumentsList = listOf(
-            navArgument(KEY_CHARACTER_ID) { type = NavType.StringType }
+            navArgument(KEY_CHARACTER_ID) { type = NavType.StringType },
         )
 
         fun characterDetail(
-            characterId: String
+            characterId: String,
         ) = object : NavigationCommand {
 
             override val arguments = argumentsList

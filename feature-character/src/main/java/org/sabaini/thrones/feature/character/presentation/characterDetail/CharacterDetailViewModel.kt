@@ -15,19 +15,19 @@ import javax.inject.Inject
 class CharacterDetailViewModel @Inject constructor(
     private val getCharacterUseCase: GetCharacterUseCase,
     savedStateHandle: SavedStateHandle,
-    charactersInitialState: CharacterDetailUiState
+    charactersInitialState: CharacterDetailUiState,
 ) : BaseViewModel<
     CharacterDetailUiState,
     CharacterDetailUiState.PartialState,
     CharacterDetailEvent,
-    CharacterDetailIntent
+    CharacterDetailIntent,
     >(
     savedStateHandle,
-    charactersInitialState
+    charactersInitialState,
 ) {
 
     private val characterId: String = checkNotNull(
-        savedStateHandle[NavigationDirections.CharacterDetailNavigation.KEY_CHARACTER_ID]
+        savedStateHandle[NavigationDirections.CharacterDetailNavigation.KEY_CHARACTER_ID],
     )
 
     init {
@@ -41,20 +41,22 @@ class CharacterDetailViewModel @Inject constructor(
 
     override fun reduceUiState(
         previousState: CharacterDetailUiState,
-        partialState: CharacterDetailUiState.PartialState
+        partialState: CharacterDetailUiState.PartialState,
     ): CharacterDetailUiState = when (partialState) {
         is CharacterDetailUiState.PartialState.Loading -> previousState.copy(
             isLoading = true,
-            isError = false
+            isError = false,
         )
+
         is CharacterDetailUiState.PartialState.Fetched -> previousState.copy(
             isLoading = false,
             character = partialState.character,
-            isError = false
+            isError = false,
         )
+
         is CharacterDetailUiState.PartialState.Error -> previousState.copy(
             isLoading = false,
-            isError = true
+            isError = true,
         )
     }
 
@@ -69,8 +71,8 @@ class CharacterDetailViewModel @Inject constructor(
                         .onSuccess { character ->
                             emit(
                                 CharacterDetailUiState.PartialState.Fetched(
-                                    character.toPresentationModel()
-                                )
+                                    character.toPresentationModel(),
+                                ),
                             )
                         }
                         .onFailure {

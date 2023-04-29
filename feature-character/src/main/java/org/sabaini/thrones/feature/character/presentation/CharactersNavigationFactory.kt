@@ -18,7 +18,7 @@ class CharactersNavigationFactory @Inject constructor() : NavigationFactory {
 
         builder.composable(
             route = NavigationDirections.CharacterDetailNavigation.ROUTE,
-            arguments = NavigationDirections.CharacterDetailNavigation.argumentsList
+            arguments = NavigationDirections.CharacterDetailNavigation.argumentsList,
         ) {
             CharacterDetailRoute(onAppBarState)
         }

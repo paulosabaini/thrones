@@ -16,19 +16,19 @@ import org.sabaini.thrones.feature.character.R
 
 @Composable
 fun CharactersErrorContent(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState()),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Text(
             text = stringResource(id = R.string.characters_error_fetching),
             color = Color.Red,
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.headlineSmall
+            style = MaterialTheme.typography.headlineSmall,
         )
     }
 }

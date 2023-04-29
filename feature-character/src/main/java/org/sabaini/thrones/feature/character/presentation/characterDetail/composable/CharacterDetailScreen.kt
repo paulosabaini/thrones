@@ -23,7 +23,7 @@ const val CHARACTER_LOADING_TEST_TAG = "characterLoadingTestTag"
 @Composable
 fun CharacterDetailRoute(
     onAppBarState: (AppBarState) -> Unit,
-    viewModel: CharacterDetailViewModel = hiltViewModel()
+    viewModel: CharacterDetailViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
@@ -31,8 +31,8 @@ fun CharacterDetailRoute(
         onAppBarState(
             AppBarState(
                 title = uiState.character?.fullName ?: "",
-                showNavigationIcon = true
-            )
+                showNavigationIcon = true,
+            ),
         )
     }
 
@@ -42,7 +42,7 @@ fun CharacterDetailRoute(
 @Composable
 fun CharacterDetailScreen(
     uiState: CharacterDetailUiState,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     if (uiState.character != null) {
         CharacterDetails(character = uiState.character, modifier = modifier)
@@ -53,20 +53,21 @@ fun CharacterDetailScreen(
 
 @Composable
 private fun CharacterNotAvailableContent(
-    uiState: CharacterDetailUiState
+    uiState: CharacterDetailUiState,
 ) {
     when {
         uiState.isLoading -> {
             CircularProgressIndicator(
-                modifier = Modifier.testTag(CHARACTER_LOADING_TEST_TAG)
+                modifier = Modifier.testTag(CHARACTER_LOADING_TEST_TAG),
             )
         }
+
         uiState.isError -> {
             Text(
                 text = stringResource(id = R.string.character_detail_error_fetching),
                 color = Color.Red,
                 textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.headlineSmall
+                style = MaterialTheme.typography.headlineSmall,
             )
         }
     }

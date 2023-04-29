@@ -6,7 +6,7 @@ import org.sabaini.thrones.feature.character.domain.repository.CharacterReposito
 fun interface RefreshCharactersUseCase : suspend () -> Result<Unit>
 
 suspend fun refreshCharacters(
-    characterRepository: CharacterRepository
+    characterRepository: CharacterRepository,
 ): Result<Unit> = resultOf {
     characterRepository.refreshCharacters()
 }

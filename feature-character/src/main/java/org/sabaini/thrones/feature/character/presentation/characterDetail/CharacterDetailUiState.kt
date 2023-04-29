@@ -10,7 +10,7 @@ import org.sabaini.thrones.feature.character.presentation.model.CharacterDisplay
 data class CharacterDetailUiState(
     val isLoading: Boolean = false,
     val character: CharacterDisplayable? = null,
-    val isError: Boolean = false
+    val isError: Boolean = false,
 ) : Parcelable {
 
     sealed class PartialState {

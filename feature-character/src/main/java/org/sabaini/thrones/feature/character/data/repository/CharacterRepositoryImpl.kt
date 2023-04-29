@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 class CharacterRepositoryImpl @Inject constructor(
     private val thronesApi: ThronesApi,
-    private val characterDao: CharacterDao
+    private val characterDao: CharacterDao,
 ) : CharacterRepository {
 
     override fun getCharacters(): Flow<List<Character>> {

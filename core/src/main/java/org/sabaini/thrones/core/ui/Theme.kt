@@ -19,19 +19,19 @@ import androidx.core.view.WindowCompat
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
-    tertiary = Pink80
+    tertiary = Pink80,
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
-    tertiary = Pink40
+    tertiary = Pink40,
 )
 
 @Composable
 fun ThronesTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val colorScheme = pickColorScheme(darkTheme)
     val view = LocalView.current
@@ -49,18 +49,19 @@ fun ThronesTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
-        content = content
+        content = content,
     )
 }
 
 @Composable
 fun pickColorScheme(
-    darkTheme: Boolean
+    darkTheme: Boolean,
 ): ColorScheme = when {
     Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
         val context = LocalContext.current
         if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
     }
+
     darkTheme -> DarkColorScheme
     else -> LightColorScheme
 }

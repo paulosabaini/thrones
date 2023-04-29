@@ -17,21 +17,21 @@ import org.sabaini.thrones.feature.character.domain.usecase.refreshCharacters
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
-@Module(includes = [CharacterModule.BindsModule::class])
+@Module
 @InstallIn(SingletonComponent::class)
-object CharacterModule {
+internal object CharacterModule {
 
     @Provides
     @Singleton
     fun provideThronesApi(
-        retrofit: Retrofit
+        retrofit: Retrofit,
     ): ThronesApi {
         return retrofit.create(ThronesApi::class.java)
     }
 
     @Provides
     fun provideGetCharactersUseCase(
-        characterRepository: CharacterRepository
+        characterRepository: CharacterRepository,
     ): GetCharactersUseCase {
         return GetCharactersUseCase {
             getCharacters(characterRepository)
@@ -40,7 +40,7 @@ object CharacterModule {
 
     @Provides
     fun provideRefreshCharactersUseCase(
-        characterRepository: CharacterRepository
+        characterRepository: CharacterRepository,
     ): RefreshCharactersUseCase {
         return RefreshCharactersUseCase {
             refreshCharacters(characterRepository)
@@ -49,7 +49,7 @@ object CharacterModule {
 
     @Provides
     fun provideGetCharacterUseCase(
-        characterRepository: CharacterRepository
+        characterRepository: CharacterRepository,
     ): GetCharacterUseCase {
         return GetCharacterUseCaseImpl(characterRepository)
     }

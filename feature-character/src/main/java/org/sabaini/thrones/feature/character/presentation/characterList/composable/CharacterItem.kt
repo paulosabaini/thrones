@@ -20,11 +20,11 @@ import org.sabaini.thrones.feature.character.presentation.model.CharacterDisplay
 fun CharacterItem(
     character: CharacterDisplayable,
     modifier: Modifier = Modifier,
-    onCharacterClicked: () -> Unit
+    onCharacterClicked: () -> Unit,
 ) {
     Card(
         modifier = modifier.padding(vertical = dimensionResource(id = R.dimen.dimen_small)),
-        onClick = { onCharacterClicked() }
+        onClick = { onCharacterClicked() },
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             AsyncImage(
@@ -33,13 +33,13 @@ fun CharacterItem(
                 modifier = Modifier
                     .weight(1f)
                     .padding(dimensionResource(id = R.dimen.dimen_medium))
-                    .clip(RoundedCornerShape(percent = 20))
+                    .clip(RoundedCornerShape(percent = 20)),
             )
 
             Text(
                 text = character.fullName,
                 style = Typography.titleMedium,
-                modifier = Modifier.weight(2f)
+                modifier = Modifier.weight(2f),
             )
         }
     }

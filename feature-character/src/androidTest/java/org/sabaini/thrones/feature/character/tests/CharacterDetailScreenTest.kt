@@ -33,7 +33,7 @@ class CharacterDetailScreenTest {
     @Test
     fun characterDetailScreen_whenContentNotAvailableAndLoadingOccurs_shouldHaveLoadingContent() {
         setUpComposable(
-            CharacterDetailUiState(isLoading = true)
+            CharacterDetailUiState(isLoading = true),
         )
 
         composeTestRule
@@ -44,7 +44,7 @@ class CharacterDetailScreenTest {
     @Test
     fun characterDetailScreen_whenContentNotAvailableAndErrorOccurs_shouldHaveErrorContent() {
         setUpComposable(
-            CharacterDetailUiState(isError = true)
+            CharacterDetailUiState(isError = true),
         )
 
         composeTestRule
@@ -53,7 +53,7 @@ class CharacterDetailScreenTest {
     }
 
     private fun setUpComposable(
-        characterDetailUiState: CharacterDetailUiState
+        characterDetailUiState: CharacterDetailUiState,
     ) {
         composeTestRule.setContent { CharacterDetailScreen(uiState = characterDetailUiState) }
     }
