@@ -18,14 +18,14 @@ import javax.inject.Singleton
 @Module
 @TestInstallIn(
     components = [SingletonComponent::class],
-    replaces = [CharacterModule::class]
+    replaces = [CharacterModule::class],
 )
-object FakeCharacterModule {
+internal object FakeCharacterModule {
 
     @Provides
     @Singleton
     fun provideFakeThronesApi(
-        retrofit: Retrofit
+        retrofit: Retrofit,
     ): ThronesApi {
         return retrofit.create(ThronesApi::class.java)
     }
@@ -34,7 +34,7 @@ object FakeCharacterModule {
     fun provideFakeGetCharactersUseCase(): GetCharactersUseCase {
         return GetCharactersUseCase {
             flowOf(
-                Result.success(generateTestCharactersFromDomain())
+                Result.success(generateTestCharactersFromDomain()),
             )
         }
     }

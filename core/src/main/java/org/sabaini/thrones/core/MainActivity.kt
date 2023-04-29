@@ -47,12 +47,12 @@ class MainActivity : ComponentActivity() {
                 var appBarState by remember { mutableStateOf(AppBarState()) }
 
                 Scaffold(
-                    topBar = { MainTopAppBar(appBarState) { navController.navigateUp() } }
+                    topBar = { MainTopAppBar(appBarState) { navController.navigateUp() } },
                 ) {
                     NavigationHost(
                         modifier = Modifier.padding(it),
                         navController = navController,
-                        factories = navigationFactories
+                        factories = navigationFactories,
                     ) { newAppBarState ->
                         appBarState = newAppBarState
                     }
@@ -61,7 +61,7 @@ class MainActivity : ComponentActivity() {
                 navigationManager
                     .navigationEvent
                     .collectWithLifecycle(
-                        key = navController
+                        key = navController,
                     ) {
                         navController.navigate(it.destination, it.navOptions)
                     }
@@ -76,12 +76,12 @@ private fun MainTopAppBar(appBarState: AppBarState, navigateUp: () -> Unit) {
         title = {
             Text(
                 text = appBarState.title,
-                fontWeight = FontWeight.Medium
+                fontWeight = FontWeight.Medium,
             )
         },
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.primary,
-            titleContentColor = MaterialTheme.colorScheme.onPrimary
+            titleContentColor = MaterialTheme.colorScheme.onPrimary,
         ),
         navigationIcon = {
             if (appBarState.showNavigationIcon) {
@@ -89,13 +89,13 @@ private fun MainTopAppBar(appBarState: AppBarState, navigateUp: () -> Unit) {
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
                         tint = MaterialTheme.colorScheme.onPrimary,
-                        contentDescription = "Back navigation"
+                        contentDescription = "Back navigation",
                     )
                 }
             }
         },
         actions = {
             appBarState.actions?.invoke(this)
-        }
+        },
     )
 }

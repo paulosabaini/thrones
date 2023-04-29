@@ -10,12 +10,12 @@ fun NavigationHost(
     navController: NavHostController,
     factories: Set<NavigationFactory>,
     modifier: Modifier = Modifier,
-    onAppBarState: (AppBarState) -> Unit
+    onAppBarState: (AppBarState) -> Unit,
 ) {
     NavHost(
         navController = navController,
         startDestination = NavigationDirections.CharacterList.destination,
-        modifier = modifier
+        modifier = modifier,
     ) {
         factories.forEach {
             it.create(this, onAppBarState)

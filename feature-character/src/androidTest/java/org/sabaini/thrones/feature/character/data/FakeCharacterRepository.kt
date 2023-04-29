@@ -8,7 +8,7 @@ import org.sabaini.thrones.feature.character.domain.repository.CharacterReposito
 class FakeCharacterRepository : CharacterRepository {
     override fun getCharacters(): Flow<List<Character>> {
         return flowOf(
-            generateTestCharactersFromDomain()
+            generateTestCharactersFromDomain(),
         )
     }
 
@@ -16,7 +16,7 @@ class FakeCharacterRepository : CharacterRepository {
 
     override fun getCharacter(characterId: String): Flow<Character> {
         return flowOf(
-            generateTestCharactersFromDomain().first()
+            generateTestCharactersFromDomain().first(),
         )
     }
 }

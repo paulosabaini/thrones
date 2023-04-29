@@ -20,5 +20,5 @@ data class CharacterResponse(
     @SerialName("image")
     val image: String = "",
     @SerialName("imageUrl")
-    val imageUrl: String = ""
+    val imageUrl: String = "",
 )

@@ -15,7 +15,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(ViewModelComponent::class)
-object CharactersViewModelModule {
+internal object CharactersViewModelModule {
 
     @Provides
     fun provideInitialCharactersUiState(): CharactersUiState = CharactersUiState()
@@ -23,7 +23,7 @@ object CharactersViewModelModule {
 
 @Module
 @InstallIn(ViewModelComponent::class)
-object CharacterDetailViewModelModule {
+internal object CharacterDetailViewModelModule {
 
     @Provides
     fun provideInitialCharacterDetailUiState(): CharacterDetailUiState = CharacterDetailUiState()
@@ -31,7 +31,7 @@ object CharacterDetailViewModelModule {
 
 @Module
 @InstallIn(SingletonComponent::class)
-interface CharactersSingletonModule {
+internal interface CharactersSingletonModule {
 
     @Singleton
     @Binds

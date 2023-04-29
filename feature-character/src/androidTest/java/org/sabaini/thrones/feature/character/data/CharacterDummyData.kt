@@ -11,7 +11,7 @@ internal fun generateTestCharactersFromPresentation() = listOf(
         fullName = "Daenerys Targaryen",
         title = "Mother of Dragons",
         family = "House Targaryen",
-        imageUrl = ""
+        imageUrl = "",
     ),
     CharacterDisplayable(
         id = 1,
@@ -20,7 +20,7 @@ internal fun generateTestCharactersFromPresentation() = listOf(
         fullName = "Samwell Tarly",
         title = "Maester",
         family = "House Tarly",
-        imageUrl = ""
+        imageUrl = "",
     ),
     CharacterDisplayable(
         id = 2,
@@ -29,8 +29,8 @@ internal fun generateTestCharactersFromPresentation() = listOf(
         fullName = "Jon Snow",
         title = "King of the North",
         family = "House Stark",
-        imageUrl = ""
-    )
+        imageUrl = "",
+    ),
 )
 
 internal fun generateTestCharactersFromDomain() = listOf(
@@ -41,7 +41,7 @@ internal fun generateTestCharactersFromDomain() = listOf(
         fullName = "Daenerys Targaryen",
         title = "Mother of Dragons",
         family = "House Targaryen",
-        imageUrl = ""
+        imageUrl = "",
     ),
     Character(
         id = 1,
@@ -50,7 +50,7 @@ internal fun generateTestCharactersFromDomain() = listOf(
         fullName = "Samwell Tarly",
         title = "Maester",
         family = "House Tarly",
-        imageUrl = ""
+        imageUrl = "",
     ),
     Character(
         id = 2,
@@ -59,6 +59,6 @@ internal fun generateTestCharactersFromDomain() = listOf(
         fullName = "Jon Snow",
         title = "King of the North",
         family = "House Stark",
-        imageUrl = ""
-    )
+        imageUrl = "",
+    ),
 )

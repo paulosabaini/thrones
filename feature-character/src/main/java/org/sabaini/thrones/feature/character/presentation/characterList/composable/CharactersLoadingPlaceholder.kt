@@ -7,9 +7,9 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun CharactersLoadingPlaceHolder(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Spacer(
-        modifier = modifier.fillMaxSize()
+        modifier = modifier.fillMaxSize(),
     )
 }

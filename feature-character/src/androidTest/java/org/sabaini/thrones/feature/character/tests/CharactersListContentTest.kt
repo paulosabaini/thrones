@@ -22,7 +22,7 @@ class CharactersListContentTest {
         composeTestRule.setContent {
             CharactersListContent(
                 characterList = testCharacters,
-                onCharacterClicked = {}
+                onCharacterClicked = {},
             )
         }
     }

@@ -42,7 +42,7 @@ class GetCharactersUseCaseTest {
 
             assertEquals(
                 expected = Result.success(testCharactersFromDomain),
-                actual = result
+                actual = result,
             )
             awaitComplete()
         }
@@ -54,7 +54,7 @@ class GetCharactersUseCaseTest {
         val testException = IOException("Test message")
         val testCharactersFromDomain = listOf(generateTestCharacterFromDomain())
         coEvery { characterRepository.getCharacters() } throws testException andThen flowOf(
-            testCharactersFromDomain
+            testCharactersFromDomain,
         )
 
         // When-Then
@@ -64,14 +64,14 @@ class GetCharactersUseCaseTest {
 
                 assertEquals(
                     expected = Result.failure(testException),
-                    actual = errorResult
+                    actual = errorResult,
                 )
 
                 val itemsResult = awaitItem()
 
                 assertEquals(
                     expected = Result.success(testCharactersFromDomain),
-                    actual = itemsResult
+                    actual = itemsResult,
                 )
             }
         }
@@ -101,7 +101,7 @@ class GetCharactersUseCaseTest {
 
                 assertEquals(
                     expected = Result.failure(testException),
-                    actual = result
+                    actual = result,
                 )
             }
         }

@@ -33,12 +33,12 @@ class NavigationManagerTest {
 
             assertEquals(
                 expected = testNavigationCommand.destination,
-                actual = actualItem.destination
+                actual = actualItem.destination,
             )
 
             assertEquals(
                 expected = testNavigationCommand.navOptions,
-                actual = actualItem.navOptions
+                actual = actualItem.navOptions,
             )
         }
     }
@@ -57,27 +57,27 @@ class NavigationManagerTest {
         objectUnderTest.navigationEvent.test {
             assertEquals(
                 expected = "testDestination0",
-                actual = awaitItem().destination
+                actual = awaitItem().destination,
             )
 
             assertEquals(
                 expected = "testDestination1",
-                actual = awaitItem().destination
+                actual = awaitItem().destination,
             )
 
             assertEquals(
                 expected = "testDestination2",
-                actual = awaitItem().destination
+                actual = awaitItem().destination,
             )
 
             assertEquals(
                 expected = "testDestination3",
-                actual = awaitItem().destination
+                actual = awaitItem().destination,
             )
 
             assertEquals(
                 expected = "testDestination4",
-                actual = awaitItem().destination
+                actual = awaitItem().destination,
             )
         }
     }

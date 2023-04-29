@@ -9,7 +9,7 @@ private const val DATABASE_VERSION = 1
 
 @Database(
     entities = [CharacterCached::class],
-    version = DATABASE_VERSION
+    version = DATABASE_VERSION,
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun characterDao(): CharacterDao

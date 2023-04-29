@@ -18,27 +18,27 @@ const val CHARACTER_DIVIDER_TEST_TAG = "characterDividerTestTag"
 fun CharactersListContent(
     characterList: List<CharacterDisplayable>,
     modifier: Modifier = Modifier,
-    onCharacterClicked: (String) -> Unit
+    onCharacterClicked: (String) -> Unit,
 ) {
     LazyColumn(
         modifier = modifier
             .padding(
-                horizontal = dimensionResource(id = R.dimen.dimen_medium)
-            )
+                horizontal = dimensionResource(id = R.dimen.dimen_medium),
+            ),
     ) {
         itemsIndexed(
             items = characterList,
-            key = { _, character -> character.id }
+            key = { _, character -> character.id },
         ) { index, item ->
             CharacterItem(
                 character = item,
-                onCharacterClicked = { onCharacterClicked(item.id.toString()) }
+                onCharacterClicked = { onCharacterClicked(item.id.toString()) },
             )
 
             if (index < characterList.lastIndex) {
                 Divider(
                     modifier = Modifier.testTag(CHARACTER_DIVIDER_TEST_TAG),
-                    color = Color.Transparent
+                    color = Color.Transparent,
                 )
             }
         }

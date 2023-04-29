@@ -31,7 +31,7 @@ class CharactersRouteTest {
         composeTestRule.activity.setContent {
             CharactersRoute(
                 onAppBarState = { AppBarState(title = "Thrones") },
-                viewModel = composeTestRule.getHiltTestViewModel()
+                viewModel = composeTestRule.getHiltTestViewModel(),
             )
         }
     }

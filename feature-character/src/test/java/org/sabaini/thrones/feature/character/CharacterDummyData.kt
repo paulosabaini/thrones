@@ -11,7 +11,7 @@ internal fun generateTestCharacterFromRemote() = CharacterResponse(
     title = "Mother of Dragons",
     family = "House Targaryen",
     image = "daenerys.jpg",
-    imageUrl = "https://thronesapi.com/assets/images/daenerys.jpg"
+    imageUrl = "https://thronesapi.com/assets/images/daenerys.jpg",
 )
 
 internal fun generateTestCharacterFromDomain() = Character(
@@ -21,5 +21,5 @@ internal fun generateTestCharacterFromDomain() = Character(
     fullName = "Daenerys Targaryen",
     title = "Mother of Dragons",
     family = "House Targaryen",
-    imageUrl = "https://thronesapi.com/assets/images/daenerys.jpg"
+    imageUrl = "https://thronesapi.com/assets/images/daenerys.jpg",
 )

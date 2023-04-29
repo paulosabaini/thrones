@@ -70,7 +70,7 @@ class CharacterRepositoryTest {
     fun `should retrieve character from local database if valid id was given`() = runTest {
         // Given
         every { characterDao.getCharacter(any()) } returns flowOf(
-            generateTestCharacterFromDomain().toEntityModel()
+            generateTestCharacterFromDomain().toEntityModel(),
         )
 
         // When
@@ -83,7 +83,7 @@ class CharacterRepositoryTest {
     private fun setUpCharacterRepository() {
         objectUnderTest = CharacterRepositoryImpl(
             thronesApi,
-            characterDao
+            characterDao,
         )
     }
 }

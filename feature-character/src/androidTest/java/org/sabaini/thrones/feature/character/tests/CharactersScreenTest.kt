@@ -38,8 +38,8 @@ class CharactersScreenTest {
         setUpComposable(
             CharactersUiState(
                 characters = testCharacters,
-                isError = true
-            )
+                isError = true,
+            ),
         )
 
         composeTestRule
@@ -52,8 +52,8 @@ class CharactersScreenTest {
         setUpComposable(
             CharactersUiState(
                 characters = testCharacters,
-                isError = true
-            )
+                isError = true,
+            ),
         )
 
         composeTestRule
@@ -64,7 +64,7 @@ class CharactersScreenTest {
     @Test
     fun charactersScreen_whenContentNotAvailableAndErrorOccurs_shouldHaveErrorContent() {
         setUpComposable(
-            CharactersUiState(isError = true)
+            CharactersUiState(isError = true),
         )
 
         composeTestRule
@@ -73,13 +73,12 @@ class CharactersScreenTest {
     }
 
     private fun setUpComposable(
-        charactersUiState: CharactersUiState
+        charactersUiState: CharactersUiState,
     ) {
         composeTestRule.setContent {
             CharactersScreen(
                 uiState = charactersUiState,
-                onRefreshCharacters = {},
-                onCharacterClicked = {}
+                onIntent = {},
             )
         }
     }

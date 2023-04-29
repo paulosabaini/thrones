@@ -14,17 +14,17 @@ private const val APP_DATABASE_NAME = "app_database_name"
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DatabaseModule {
+internal object DatabaseModule {
 
     @Singleton
     @Provides
     fun provideAppDatabase(
-        @ApplicationContext context: Context
+        @ApplicationContext context: Context,
     ): AppDatabase {
         return Room.databaseBuilder(
             context,
             AppDatabase::class.java,
-            APP_DATABASE_NAME
+            APP_DATABASE_NAME,
         ).build()
     }
 
